@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+        :root {
+            --main-color: #F7FAFF;
+            --black: #2F4F4F;
+            --blue: #4169E1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            background: var(--main-color);
+            font-family: 'Roboto', sans-serif;
+            color: var(--black);
+        }
+
+        header {
+            z-index: 1000;
+            position: fixed;
+            background: var(--main-color);
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.1s ease;
+        }
+
+        header .logo {
+            font-family: 'Righteous', sans-serif;
+            font-size: 32px;
+            color: var(--blue);
+        }
+
+        header .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .navbar a {
+            font-size: 18px;
+            padding: 0 15px;
+            border-bottom: 2px solid transparent;
+            transition: 0.1s ease;
+        }
+
+        header .navbar a:hover {
+            color: var(--blue);
+            border-bottom: 2px solid #4169E1;
+            padding: 5px 15px;
+        }
+
+        header .icon {
+            padding-left: 15px;
+            padding-right: 0px;
+        }
+
+        header .icon .material-symbols-outlined {
+            font-size: 24px;
+            color: white;
+            background-color: var(--blue);
+            border-radius: 30px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        header .icon .material-symbols-outlined:hover {
+            box-shadow: 1px 1px 2px 0px #2F4F4F;
+        }
+
+        .faq {
+            background-color: #F7FAFF;
+            height: 100vh;
+
+        }
+
+        .faq h1 {
+            color: black;
+            padding-top: 100px;
+            font-size: 40px;
+            font-weight: 600;
+            position: relative;
+            left: 400px;
+        }
+
+        .faq h1 span {
+            color: blue;
+            padding-top: 100px;
+            font-size: 40px;
+            font-weight: 500;
+
+            font-family: 'Righteous', cursive;
+        }
+
+        .question h2,
+        .question p,
+        .answer h2,
+        .answer p {
+            background-color: transparent;
+            display: inline-flex;
+
+        }
+
+        .question h2,
+        .question p {
+
+            color: #F7FAFF
+        }
+
+        .answer h2,
+        .answer p {
+            color: #4169E1;
+        }
+
+        .question p,
+        .answer p {
+            margin-left: 20px;
+        }
+
+        .question h2,
+        .answer h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 40px;
+        }
+
+        .part {
+            position: absolute;
+            top: 200px;
+            left: 160px;
+
+        }
+
+        .question {
+            background-color: #4169E1;
+            width: 450px;
+            height: 100px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 15px;
+        }
+
+        .answer {
+            background-color: #ffffff;
+            width: 450px;
+            height: 100px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 15px;
+            border: 1px solid #4169E1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <header>
+            <a href="index" class="logo">SEAREQ</a>
+
+            <nav class="navbar">
+                <a href="about">About</a>
+                <a href="faq">FAQ</a>
+
+                <div class="icon">
+                    <span class="material-symbols-outlined">search</span>
+                    <!-- <span class="material-symbols-outlined">close</span> -->
+                </div>
+            </nav>
+        </header>
+
+        <div class="faq">
+            <h1><span>SEAREQ</span>uestion</h1>
+
+            <div class="part">
+                <div class="question">
+                    <h2>Q</h2>
+                    <P>lorem ipsum</P>
+                </div>
+
+                <div class="answer">
+                    <h2>A</h2>
+                    <P>lorem ipsum</P>
+                </div>
+                <div class="question">
+                    <h2>Q</h2>
+                    <P>lorem ipsum</P>
+                </div>
+
+                <div class="answer">
+                    <h2>A</h2>
+                    <P>lorem ipsum</P>
+                </div>
+                <div class="question">
+                    <h2>Q</h2>
+                    <P>lorem ipsum</P>
+                </div>
+
+                <div class="answer">
+                    <h2>A</h2>
+                    <P>lorem ipsum</P>
+                </div>
+
+            </div>
+        </div>
+        </div>
+</body>
+
+</html>
