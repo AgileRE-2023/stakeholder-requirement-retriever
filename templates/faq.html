@@ -69,46 +69,56 @@
             padding: 5px 15px;
         }
 
-        header .icon {
+        header .navbar .icon {
             padding-left: 15px;
             padding-right: 0px;
         }
-
-        header .icon .material-symbols-outlined {
+        
+        header .navbar .icon .material-symbols-outlined {
             font-size: 24px;
-            color: white;
-            background-color: var(--blue);
+            color: var(--main-color);
+            background: var(--blue);
+            border: 2px solid transparent;
             border-radius: 30px;
-            padding: 8px;
+            box-shadow: 1px 1px 2px 0px #A9A9A9;
+            padding: 7.5px;
             cursor: pointer;
         }
-
-        header .icon .material-symbols-outlined:hover {
-            box-shadow: 1px 1px 2px 0px #2F4F4F;
+        
+        header .navbar .icon .material-symbols-outlined:hover {
+            color: var(--blue);
+            background: var(--main-color);
+            border: 2px solid #4169E1;
+            box-shadow: 1px 1px 2px 0px #A9A9A9;
         }
 
         .faq {
-            background-color: #F7FAFF;
-       
-
+            max-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            
         }
 
         .faq h1 {
             color: black;
-            padding-top: 100px;
             font-size: 40px;
             font-weight: 600;
             position: relative;
             left: 400px;
+            margin-bottom: 1.75rem;
         }
 
         .faq h1 span {
             color: blue;
-            padding-top: 100px;
             font-size: 40px;
             font-weight: 500;
-
             font-family: 'Righteous', cursive;
+            margin-bottom: 1.75rem;
         }
 
         .question h2,
@@ -134,6 +144,7 @@
         .question p,
         .answer p {
             margin-left: 20px;
+            text-align: justify
         }
 
         .question h2,
@@ -143,32 +154,57 @@
         }
 
         .part {
-            position: absolute;
-            top: 200px;
-            left: 160px;
-
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
         }
 
         .question {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 41.6666667%;
+            min-height: fit-content;
             background-color: #4169E1;
-            width: 450px;
-            height: 100px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 10px 15px;
-            padding: 15px;
+            color: #3B82F6;
+            border-radius: 0.75rem;
+            padding: 16px 16px;
+            margin-bottom: 16px
+        
         }
 
         .answer {
+          
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 41.6666667%;
+            min-height: fit-content;
             background-color: #ffffff;
-            width: 450px;
-            height: 100px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 10px 15px;
-            padding: 15px;
             border: 1px solid #4169E1;
+            color: #3B82F6;
+            border-radius: 0.75rem;
+            padding: 16px 16px;
+            margin-bottom: 16px
         }
+
+        .qna {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+          }
+      
+          @media (min-width: 640px) {
+            .qna {
+              width: 83.3333333%; /* (10/12) * 100% */
+            }
+          }
+
     </style>
 </head>
 
@@ -190,38 +226,43 @@
 
         <div class="faq">
             <h1><span>SEAREQ</span>uestion</h1>
+            <div class="qna">
+                <div class="part">
+                    <div class="question">
+                        <h2>Q</h2>
+                        <P>Bagaimana cara Saya dapat menggunakan website ini?</P>
+                    </div>
+                    <div class="answer">
+                        <h2>A</h2>
+                        <P>Mekanisme penggunaan website SEAREQ dapat digunakan dengan 
+                            memasukkan jurusan yang Anda inginkan. Kemudian Sistem Kami akan 
+                            menampilkan requirements jurusan terinput yang 
+                            relevan dengan Industri saat ini</P>
+                    </div>
+                </div>
+                <div class="part">
+                    <div class="question">
+                        <h2>Q</h2>
+                        <P>Apakah semua jurusan bisa dilakukan pencarian?</P>
+                    </div>
+                    <div class="answer">
+                        <h2>A</h2>
+                        <P>Tentu saja, Ayo temukan kebutuhan yang perlu kamu asah sedini mungkin!</P>
+                    </div>
+                </div>
+                <div class="part">
+                    <div class="question">
+                        <h2>Q</h2>
+                        <P>Apakah data yang ditampilkan up-to-date dengan kebutuhan saat ini?</P>
+                    </div>
 
-            <div class="part">
-                <div class="question">
-                    <h2>Q</h2>
-                    <P>Bagaimana cara saya menggunakan website ini</P>
+                    <div class="answer">
+                        <h2>A</h2>
+                        <P>SEAREQ pasti dan akan terus berkomitmen untuk melakukan pembaharuan bagi setiap jurusannya.</P>
+                    </div>
                 </div>
-
-                <div class="answer">
-                    <h2>A</h2>
-                    <P>Mekanisme penggunaan website SEAREQ dapat digunakan dengan memasukkan jurusan yang diinginkan. Kemudian sistem kami akan menampilkan requirement jurusan tersebut yang relevan dengan Industri saat ini</P>
                 </div>
-                <div class="question">
-                    <h2>Q</h2>
-                    <P>Apakah semua jurusan bisa melakukan pencarian</P>
-                </div>
-
-                <div class="answer">
-                    <h2>A</h2>
-                    <P>Tentu saja, Ayo temukan kebutuhan yang perlu kamu asah sedini mungkin</P>
-                </div>
-                <div class="question">
-                    <h2>Q</h2>
-                    <P>Apakah data yang ditampilkan up-to-date dengan kebutuhan saat ini</P>
-                </div>
-
-                <div class="answer">
-                    <h2>A</h2>
-                    <P>SEAREQ pasti dan akan terus berkomitmen untuk melakukan pembaharuan bagi setiap jurusannya</P>
-                </div>
-
             </div>
-        </div>
         </div>
 </body>
 
