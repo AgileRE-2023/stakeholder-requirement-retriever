@@ -21,5 +21,9 @@ from stakeholder_requirement import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about', views.about),
-    path('faq', views.faq)
+    path('faq', views.faq),
+    path('', views.home),
+    path('output', views.output),
+    path('search', views.search),
+    
 ]

@@ -6,3 +6,12 @@ def about(request):
 
 def faq(request): 
     return render(request, "faq.html")
+
+def home(request): 
+    return render(request, "home.html")
+
+def output(request): 
+    return render(request, "output.html")
+
+def search(request): 
+    return render(request, "search.html")
