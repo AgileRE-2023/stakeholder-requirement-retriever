@@ -14,20 +14,21 @@ about
 
 <body>
     <header>
-        <a href="./" class="logo">SEAREQ</a>
+        <a href="" class="logo">SEAREQ</a>
 
         <nav class="navbar">
             <div class="menus">
-                <a href="./about">About</a>
-                <a href="./faq">FAQ</a>
+                <a href="about">About</a>
+                <a href="faq">FAQ</a>
             </div>
 
             <div class="icon">
-                <a href="search.html">
+                <a href="search">
                     <span class="material-symbols-outlined">search</span>
                 </a>
             </div>
         </nav>
+        
     </header>
 
     <div class="element">
@@ -60,7 +61,7 @@ about
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" id="c1">
+                        <div class="swiper-slide card" id="c2">
                             <div class="card-content">
                                 <div class="image">
                                     <img src="static/img/banner-img.jpg" alt="">
@@ -82,7 +83,7 @@ about
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" id="c1">
+                        <div class="swiper-slide card" id="c2">
                             <div class="card-content">
                                 <div class="image">
                                     <img src="static/img/banner-img.jpg" alt="">
@@ -104,7 +105,7 @@ about
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" id="c1">
+                        <div class="swiper-slide card" id="c2">
                             <div class="card-content">
                                 <div class="image">
                                     <img src="static/img/banner-img.jpg" alt="">
@@ -126,7 +127,7 @@ about
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" id="c1">
+                        <div class="swiper-slide card" id="c2">
                             <div class="card-content">
                                 <div class="image">
                                     <img src="static/img/banner-img.jpg" alt="">
@@ -149,7 +150,10 @@ about
                             </div>
                         </div>
                     </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
+                <div class="swipe">*Swipe down to see more!</div>
             </div>
         </div>
     </div>
@@ -159,22 +163,23 @@ about
     <script type="text/javascript">
         var swiper = new Swiper(".mySwiper", {
             direction: "vertical",
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
-            slidesPerGroup: 1,
-            loop: true,
+            slidesPerGroup: 2,
+            loop: false,
             loopFillGroupWithBlank: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+            autoplay: {
+                delay: 10000, 
+                disableOnInteraction: false,
             },
         });
 
     </script>
+
 
 
 
