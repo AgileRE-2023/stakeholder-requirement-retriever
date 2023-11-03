@@ -15,3 +15,6 @@ def output(request):
 
 def search(request): 
     return render(request, "search.html")
+
+def major(request): 
+    return render(request, "major.html")

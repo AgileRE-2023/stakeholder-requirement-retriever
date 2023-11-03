@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.home),
     path('output', views.output),
     path('search', views.search),
+    path('major', views.major),
     
 ]

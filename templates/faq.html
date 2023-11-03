@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,34 +40,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.1s ease;
+            transition: 0.3s ease;
         }
-
+        
         header .logo {
-            font-family: 'Righteous', sans-serif;
+            font-family: 'Righteous', cursive;
             font-size: 32px;
             color: var(--blue);
         }
-
+        
         header .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        header .navbar a {
+        
+        header .navbar .menus a {
+            position: relative;
             font-size: 18px;
-            padding: 0 15px;
+            padding: 5px 15px;
             border-bottom: 2px solid transparent;
-            transition: 0.1s ease;
+            transition: 0.3s ease;
         }
-
-        header .navbar a:hover {
+        
+        header .navbar .menus a:hover {
             color: var(--blue);
             border-bottom: 2px solid #4169E1;
             padding: 5px 15px;
         }
-
+        
         header .navbar .icon {
             padding-left: 15px;
             padding-right: 0px;
@@ -93,6 +93,7 @@
         }
 
         .faq {
+            padding-top:100px;
             max-width: 100%;
             min-height: 100vh;
             display: flex;
@@ -109,7 +110,7 @@
             font-size: 40px;
             font-weight: 600;
             position: relative;
-            left: 400px;
+            left: 50%%;
             margin-bottom: 1.75rem;
         }
 
@@ -176,7 +177,6 @@
         }
 
         .answer {
-          
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -209,24 +209,29 @@
 </head>
 
 <body>
-    <header>
         <header>
-            <a href="index" class="logo">SEAREQ</a>
-
+            <a href="./" class="logo">SEAREQ</a>
+    
             <nav class="navbar">
-                <a href="about">About</a>
-                <a href="faq">FAQ</a>
-
+                <div class="menus">
+                    <a href="major">Major</a>
+                    <a href="about">About</a>
+                    <a href="faq">FAQ</a>
+                </div>
+    
                 <div class="icon">
-                    <span class="material-symbols-outlined">search</span>
-                    <!-- <span class="material-symbols-outlined">close</span> -->
+                    <a href="search">
+                        <span class="material-symbols-outlined">search</span>
+                    </a>
                 </div>
             </nav>
         </header>
 
         <div class="faq">
-            <h1><span>SEAREQ</span>uestion</h1>
             <div class="qna">
+                <div class="part">
+                    <h1><span>SEAREQ</span>uestion</h1>
+                </div>
                 <div class="part">
                     <div class="question">
                         <h2>Q</h2>

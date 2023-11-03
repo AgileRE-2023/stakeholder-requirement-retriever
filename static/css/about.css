@@ -15,10 +15,7 @@
     font-family: 'Roboto', sans-serif;
     color: var(--black);
 }
-body{
-    overflow: hidden;
 
-}
 /* Navbar */
 header {
     z-index: 1000;
@@ -104,19 +101,13 @@ h3{
   margin-left: 20px;
   font-size:12px;
 }
-/* 
-.swiper{
-  right: 0;
-  height: 400px;
-  width: 800px;
-} */
 
 .card{
   position: relative;
   background: #fff;
   border-radius: 20px;
-  height: 100px;
-  width: 350px;
+  height: 20%;
+  width: 90%;
   margin: 12px 0px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
@@ -132,7 +123,7 @@ h3{
   content: "";
   position: absolute;
   height: 40%;
-  width: 100%;
+  width: 90%;
   border-radius: 20px;
 }
 
@@ -167,23 +158,21 @@ h3{
 .element {
     background-color: #F7FAFF;
     height: 100vh;
-    overflow: hidden;
 }
 
 #back {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    height: 480px;
-    object-fit: cover;
-    pointer-events: none;
+  position: absolute;
+  left: 0; /* Center horizontally */
+  bottom: 0;
+  height: 80%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .about {
     position: absolute;
-    top: 80px;
-    right: 150px;
-    flex: 2;
+    top: 180%;
+    right:640%;
     background-color: transparent;
 }
 
@@ -205,15 +194,13 @@ h3{
 }
 
 .mySwiper {
-  width: 110%; 
-  margin: auto; 
+  width: 140%; 
   height: 320px;
-  top:-10%;
+  margin: auto; 
 }
 
 .swipe{
   padding-top: 4px;
-  padding-right: 4px;
   text-align: right; 
   position: relative;
   color: rgba(0, 0, 0, 0.50); 
@@ -222,5 +209,35 @@ h3{
   font-weight: 400; 
   word-wrap: break-word;
   padding-bottom: 10px;
+  width: 124%;
 }
+
+@media (max-width: 600px) {
+  #back {
+      height: 60%; 
+  }
+
+  .about {
+    justify-content: center; 
+    align-items: center;
+    right: 450%;
+}
+
+
+} 
+
+@media (max-width: 400px) {
+  #back {
+      height: 40%; 
+  }
+
+  .about {
+    justify-content: center; 
+    align-items: center;
+    right: 200%;
+}
+
+
+} 
+
 
