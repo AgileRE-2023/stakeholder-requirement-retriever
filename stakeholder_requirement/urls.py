@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about', views.about),
     path('faq', views.faq),
-    path('', views.home),
+    path('', include("getByQuery.urls")),
     path('query/',include("getByQuery.urls")),
     path('history/',include("getByHistory.urls"))
     

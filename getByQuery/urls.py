@@ -3,6 +3,7 @@ from django.urls import path,include
 from stakeholder_requirement import views
 
 urlpatterns = [
-    path('output', views.output),
+    path('',views.home),
     path('search', views.search),
+    path('output', views.output),
 ]  
