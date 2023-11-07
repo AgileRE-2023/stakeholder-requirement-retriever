@@ -151,6 +151,11 @@ header .navbar .icon .material-symbols-outlined:hover{
     z-index: 1;
 }
 
+.home .content .sb-container .search-box:hover{
+    color: var(--blue);
+    background: var(--main-color);
+}
+
 /* .home .content .sb-container .search-box{
     background: transparent;
     display: flex;
