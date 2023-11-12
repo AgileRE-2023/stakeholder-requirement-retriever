@@ -178,7 +178,7 @@ h3{
 
 
 .about h1 {
-    color: black;
+    color: var(--black);
     font-size: 56px;
     font-weight: 400;
     font-family: 'Roboto';
@@ -186,7 +186,7 @@ h3{
 }
 
 .about h1 span {
-    color: blue;
+    color: var(--blue);
     font-size: 56px;
     font-weight: 400;
     font-family: 'Righteous', cursive;
