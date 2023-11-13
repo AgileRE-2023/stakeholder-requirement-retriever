@@ -2,11 +2,20 @@ import string
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+from deep_translator import GoogleTranslator
 import re
 
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('stopwords')
+def translate_array(array):
+    translated_array = []
+
+    for text_to_translate in array:
+        translated_text = GoogleTranslator(source='auto', target='en').translate(text_to_translate)
+        translated_array.append(translated_text)
+
+    return translated_array
 def preprocess_data(job_descriptions):
     # Function to remove punctuation
     def remove_punctuation(text):
@@ -24,11 +33,11 @@ def preprocess_data(job_descriptions):
     # Replace specific characters
     job_descriptions = [description.replace('●', '').replace('’', '').replace('–', '') for description in job_descriptions]
 
-    
-    
+    # Translate to english
+    translated_data = translate_array(job_descriptions)
 
     # Tokenize each sentence and convert words to lowercase
-    tokenized_sentences = [nltk.word_tokenize(description.lower()) for description in job_descriptions]
+    tokenized_sentences = [nltk.word_tokenize(description.lower()) for description in translated_data]
 
     # Create a WordNetLemmatizer object
     lemmatizer = WordNetLemmatizer()
@@ -51,5 +60,6 @@ def preprocess_data(job_descriptions):
     # Remove numbers using regex
     text_without_numbers = re.sub(r'\d+', '', full_sentence)
 
-    return text_without_numbers
+    return (text_without_numbers,lemmatized_words)  
+
 

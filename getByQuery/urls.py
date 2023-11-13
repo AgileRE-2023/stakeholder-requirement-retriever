@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path('',views.home),
     path('search', views.search),
-    path('output', views.output),
+    path('getByQuery/', views.getByQuery, name="getByQuery"),
 ]  

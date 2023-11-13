@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SEAREQ - Search</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<body>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
     <section class="search">
-        <div class="sb-container">
-            <form action="" class="search-box">
-                <div class="search-box-box">
-                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
-                    <input type="text" id="input-box" placeholder="What is your major" autocomplete="off">
-                </div>
+      <div class="sb-container">
+        <form action="{% url 'getByQuery' %}" method="POST" class="search-box">
+          {% csrf_token %}
+          <div class="search-box-box">
+            <button type="submit">
+              <span class="material-symbols-outlined">search</span>
+            </button>
+            <input
+              type="text"
+              id="input-box"
+              placeholder="What is your major"
+              autocomplete="off"
+              name="getByQuery"
+            />
+          </div>
 
-                <button type="reset"><span class="material-symbols-outlined">close</span></button>
-            </form>
+          <button type="reset">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </form>
 
-            <div class="result-box">
-                <ul>
-                    <a href="output"><li>information system</li></a>
-                    <li>information management</li>
-                    <li>information system management</li>
-                </ul>
-            </div>
+        <div class="result-box">
+          <ul>
+            <a href="output"><li>information system</li></a>
+            <li>information management</li>
+            <li>information system management</li>
+          </ul>
         </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>
