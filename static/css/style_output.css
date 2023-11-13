@@ -9,11 +9,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+    background-color: #F7FAFF;
+  }
+
 /* ini batas awal navbar */
 header{
     z-index: 1000;
     position: fixed;
-    background: rgb(236, 247, 254);
+    background: #F7FAFF;
     width: 100%;
     top: 0; left: 0; right: 0;
     padding: 30px 75px;
