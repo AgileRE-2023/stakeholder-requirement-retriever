@@ -6,5 +6,6 @@ class Prodi(models.Model):
 
 class Scraping(models.Model):
     id_scrap = models.AutoField(primary_key=True)
+    id_prodi = models.ForeignKey(Prodi, on_delete=models.CASCADE, related_name='scrapings')
     tgl_scrap = models.DateTimeField(auto_now_add=True)
     teks = models.TextField(max_length=599999,null=False)
