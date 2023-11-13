@@ -16,8 +16,10 @@ def getByQuery(request):
     if request.method == 'POST':
         input_value = request.POST.get('getByQuery')
         jobDescription = scrapingKalibrr(input_value)
-        preprocessed_data,lemmatized_words = preprocess_data(jobDescription)
-        result = mainProcess(preprocessed_data,lemmatized_words)
-        return HttpResponse(f'your input value: {result}')
+        preprocessed_data,lemmatized_words,preprocessed_jobListings = preprocess_data(jobDescription)
+        top_terms_list = mainProcess(preprocessed_data,lemmatized_words)
+        context  = {'top_terms_list': top_terms_list,'query':input_value}
+        return render(request,'output.html', context)
+        # return HttpResponse(f'your input value: {result}')
     else:
-        return render(request, 'your_template.html')
+        return HttpResponse("nowhere to go!!!")

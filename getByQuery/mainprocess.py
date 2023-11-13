@@ -18,6 +18,8 @@ def posTagging(data):
             
             nouns.extend(selected_nouns)
         return nouns
+
+
 def mainProcess(preprocessed_fulltext, lemmatized_words):
     
     nouns = posTagging(preprocessed_fulltext)
@@ -26,7 +28,7 @@ def mainProcess(preprocessed_fulltext, lemmatized_words):
     filtered_sentence = ' '.join(nouns)
 
     # Filtering words in each job listing to only include filtered_sentence after POS tagging
-    blacklist_words = ['job', 'experience', 'work', 'solution', 'technology', 'information', 'knowledge', 'requirement','understanding', 'working', 'product', 'process', 'ability', 'good', 'skill', 'year', 'learn','need', 'excellent', 'implement']
+    blacklist_words = ['job', 'experience', 'work', 'solution', 'technology', 'information', 'knowledge', 'requirement','understanding', 'working', 'product', 'process', 'ability', 'good', 'skill', 'year', 'learn','need', 'excellent', 'implement','team','project','development','business', 'software', 'system', 'design', 'client','minimum']
     def word_exists_as_whole_word(word, text):
         pattern = r'\b' + re.escape(word) + r'\b'
         return bool(re.search(pattern, text))
@@ -59,7 +61,10 @@ def mainProcess(preprocessed_fulltext, lemmatized_words):
     # Sort the terms by their summed TF-IDF scores in descending order
     term_ranking_df = term_ranking_df.sort_values(by='Summed_TFIDF', ascending=False)
 
-    # Combine all values in the 'term_ranking_df.head(20)' into one sentence
-    top_20_requirement = term_ranking_df['Term'].str.cat(sep=' ')
+    # Select the top n terms
+    top_terms = term_ranking_df.head(10)
 
-    return top_20_requirement
+    # Extract the top terms as a list
+    top_terms_list = top_terms['Term'].tolist()
+
+    return top_terms_list

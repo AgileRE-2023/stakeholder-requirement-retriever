@@ -58,8 +58,8 @@ def preprocess_data(job_descriptions):
     full_sentence = ' '.join(preprocessed_jobListings)
 
     # Remove numbers using regex
-    text_without_numbers = re.sub(r'\d+', '', full_sentence)
+    preprocessed_fulltext = re.sub(r'\d+', '', full_sentence)
 
-    return (text_without_numbers,lemmatized_words)  
+    return (preprocessed_fulltext,lemmatized_words,preprocessed_jobListings)  
 
 
