@@ -108,7 +108,7 @@
                 results.forEach(function (result) {
                     var listItem = document.createElement('li');
                     var link = document.createElement('a');
-                    link.href = result.replace(/\s+/g, '-').toLowerCase() + '.html';
+                    link.href = result.replace(/\s+/g, '-').toLowerCase();
                     link.textContent = result;
                     listItem.appendChild(link);
                     resultList.appendChild(listItem);
