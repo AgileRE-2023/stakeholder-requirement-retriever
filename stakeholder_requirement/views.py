@@ -10,9 +10,6 @@ def faq(request):
 def home(request): 
     return render(request, "home.html")
 
-# def output(request): 
-#     return render(request, "output.html")
-
 def output(request): 
     return render(request, "output.html")
 

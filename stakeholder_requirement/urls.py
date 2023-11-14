@@ -24,7 +24,8 @@ urlpatterns = [
     path('faq', views.faq),
     path('', views.home),
     # path('output', views.output),
-    path('information-system', views.output),
+    # path('information-system', views.output),
+    path('sistem-informasi', views.output),
     path('search', views.search),
     path('major', views.major),
 ]
