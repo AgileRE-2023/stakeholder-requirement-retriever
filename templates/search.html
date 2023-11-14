@@ -60,6 +60,15 @@
                 window.location.href = query.replace(/\s+/g, '-').toLowerCase(); // Redirect ke halaman sesuai dengan kata kunci
             });
 
+            // Memberi fungsi pada event klik pada elemen ul
+            document.getElementById('result-list').addEventListener('click', function (event) {
+                var target = event.target;
+                if (target.tagName === 'LI') {
+                    var query = target.textContent.toLowerCase();
+                    window.location.href = query.replace(/\s+/g, '-').toLowerCase();
+                }
+            });
+
             function displayResults(results) {
                 var resultList = document.getElementById('result-list');
                 resultList.innerHTML = ''; // Menghapus isi daftar sebelumnya
@@ -67,10 +76,7 @@
                 // Menambahkan daftar hasil rekomendasi baru
                 results.forEach(function (result) {
                     var listItem = document.createElement('li');
-                    var link = document.createElement('a');
-                    link.href = result.replace(/\s+/g, '-').toLowerCase(); // Ganti spasi dengan tanda hubung dan ubah ke huruf kecil
-                    link.textContent = result;
-                    listItem.appendChild(link);
+                    listItem.textContent = result;
                     resultList.appendChild(listItem);
                 });
 
