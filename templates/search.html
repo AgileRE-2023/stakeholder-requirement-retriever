@@ -10,7 +10,7 @@
 <body>
     <section class="search">
         <div class="sb-container">
-            <form action="" class="search-box">
+            <form action="" class="search-box" id="search-form">
                 <div class="search-box-box">
                     <button type="submit"><span class="material-symbols-outlined">search</span></button>
                     <input type="text" id="input-box" placeholder="What is your major" autocomplete="off">
@@ -21,13 +21,67 @@
             </form>
 
             <div class="result-box">
-                <ul>
-                    <a href="output"><li>information system</li></a>
+                <!-- <ul>
+                    <a href="output.html"><li>information system</li></a>
                     <li>information management</li>
                     <li>information system management</li>
-                </ul>
+                </ul> -->
+                <div class="result-box">
+                    <ul id="result-list">
+                        <!-- Daftar rekomendasi jurusan akan ditambahkan di sini secara dinamis -->
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var majors = ['information system', 'information management', 'information system management'];
+
+            // Memberi fungsi pada event input pada elemen dengan id "input-box"
+            document.getElementById('input-box').addEventListener('input', function () {
+                // Mengambil nilai input
+                var query = this.value.toLowerCase();
+
+                // Menemukan rekomendasi yang sesuai dengan query
+                var matches = majors.filter(function (major) {
+                    return major.toLowerCase().includes(query);
+                });
+
+                // Menampilkan hasil rekomendasi atau kosongkan jika tidak ada yang cocok
+                displayResults(matches);
+            });
+
+            // Memberi fungsi pada event submit form
+            document.getElementById('search-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Mencegah pengiriman form
+                var query = document.getElementById('input-box').value.toLowerCase();
+                window.location.href = query.replace(/\s+/g, '-').toLowerCase() + '.html'; // Redirect ke halaman sesuai dengan kata kunci
+            });
+
+            function displayResults(results) {
+                var resultList = document.getElementById('result-list');
+                resultList.innerHTML = ''; // Menghapus isi daftar sebelumnya
+
+                // Menambahkan daftar hasil rekomendasi baru
+                results.forEach(function (result) {
+                    var listItem = document.createElement('li');
+                    var link = document.createElement('a');
+                    link.href = result.replace(/\s+/g, '-').toLowerCase(); // Ganti spasi dengan tanda hubung dan ubah ke huruf kecil
+                    link.textContent = result;
+                    listItem.appendChild(link);
+                    resultList.appendChild(listItem);
+                });
+
+                // Menampilkan pesan jika tidak ada hasil
+                if (results.length === 0) {
+                    var noResultItem = document.createElement('li');
+                    noResultItem.textContent = 'No matching majors found.';
+                    resultList.appendChild(noResultItem);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
