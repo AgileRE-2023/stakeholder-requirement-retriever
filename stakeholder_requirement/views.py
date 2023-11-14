@@ -14,7 +14,7 @@ def home(request):
 #     return render(request, "output.html")
 
 def output(request): 
-    return render(request, "information-system.html")
+    return render(request, "output.html")
 
 def search(request): 
     return render(request, "search.html")

@@ -57,7 +57,7 @@
             document.getElementById('search-form').addEventListener('submit', function (event) {
                 event.preventDefault(); // Mencegah pengiriman form
                 var query = document.getElementById('input-box').value.toLowerCase();
-                window.location.href = query.replace(/\s+/g, '-').toLowerCase() + '.html'; // Redirect ke halaman sesuai dengan kata kunci
+                window.location.href = query.replace(/\s+/g, '-').toLowerCase(); // Redirect ke halaman sesuai dengan kata kunci
             });
 
             function displayResults(results) {

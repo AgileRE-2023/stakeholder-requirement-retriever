@@ -293,6 +293,10 @@ header .navbar .icon .material-symbols-outlined:hover{
 .search .sb-container .result-box ul li:hover{
     background: #E6E6FA;
 }
+
+.search .sb-container .result-box ul li a{
+    background: transparent;
+}
 /* ini batas akhir search section */
 
 
