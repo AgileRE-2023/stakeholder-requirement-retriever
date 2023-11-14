@@ -78,55 +78,49 @@
             'Teknik Industri',
             'Rekayasa Nano Teknologi',
             'Teknologi Sains Data'];
-
+            
             // Memberi fungsi pada event input pada elemen dengan id "input-box"
             document.getElementById('input-box').addEventListener('input', function () {
-                // Mengambil nilai input
                 var query = this.value.toLowerCase();
-
-                // Menemukan rekomendasi yang sesuai dengan query
                 var matches = majors.filter(function (major) {
-                    return major.toLowerCase().includes(query);
+                    // Split the major into words
+                    var words = major.toLowerCase().split(' ');
+            
+                    // Check if any word's initial letter matches the query
+                    return words.some(function (word) {
+                        return word.startsWith(query);
+                    });
                 });
-
-                // Menampilkan hasil rekomendasi atau kosongkan jika tidak ada yang cocok
+            
                 displayResults(matches);
             });
-
-            // Memberi fungsi pada event submit form
+            
             document.getElementById('search-form').addEventListener('submit', function (event) {
-                event.preventDefault(); // Mencegah pengiriman form
+                event.preventDefault();
                 var query = document.getElementById('input-box').value.toLowerCase();
-                window.location.href = query.replace(/\s+/g, '-').toLowerCase(); // Redirect ke halaman sesuai dengan kata kunci
+                window.location.href = query.replace(/\s+/g, '-').toLowerCase() + '.html';
             });
-
-            // Memberi fungsi pada event klik pada elemen ul
-            document.getElementById('result-list').addEventListener('click', function (event) {
-                var target = event.target;
-                if (target.tagName === 'LI') {
-                    var query = target.textContent.toLowerCase();
-                    window.location.href = query.replace(/\s+/g, '-').toLowerCase();
-                }
-            });
-
+            
             function displayResults(results) {
                 var resultList = document.getElementById('result-list');
-                resultList.innerHTML = ''; // Menghapus isi daftar sebelumnya
-
-                // Menambahkan daftar hasil rekomendasi baru
+                resultList.innerHTML = '';
+            
                 results.forEach(function (result) {
                     var listItem = document.createElement('li');
-                    listItem.textContent = result;
+                    var link = document.createElement('a');
+                    link.href = result.replace(/\s+/g, '-').toLowerCase() + '.html';
+                    link.textContent = result;
+                    listItem.appendChild(link);
                     resultList.appendChild(listItem);
                 });
-
-                // Menampilkan pesan jika tidak ada hasil
+            
                 if (results.length === 0) {
                     var noResultItem = document.createElement('li');
                     noResultItem.textContent = 'No matching majors found.';
                     resultList.appendChild(noResultItem);
                 }
             }
+            
         });
     </script>
 </body>
