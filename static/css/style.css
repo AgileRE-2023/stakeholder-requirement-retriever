@@ -136,8 +136,6 @@ header .navbar .icon .material-symbols-outlined:hover{
 
 /* ini batas awal search box home section */
 .home .content .sb-container .search-box{
-    color: var(--main-color);
-    background: var(--blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,15 +143,18 @@ header .navbar .icon .material-symbols-outlined:hover{
     border: 2px solid #4169E1;
     border-radius: 22.5px;
     box-shadow: 1px 1px 2px 0px #A9A9A9;
-    width: 132px;
+    width: 129px;
     padding: 10px 15px;
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 .home .content .sb-container .search-box:hover{
     color: var(--blue);
     background: var(--main-color);
+    border: 2px solid #4169E1;
+    box-shadow: 1px 1px 2px 0px #A9A9A9;
 }
 
 /* .home .content .sb-container .search-box{
