@@ -22,11 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about', views.about),
     path('faq', views.faq),
-    path('search', views.search),
-    path('major', views.major),
     path('', include("getByQuery.urls")),
     # path('information-system', views.output),
-    path('sistem-informasi', views.output),
     path('query/',include("getByQuery.urls")),
     path('history/',include("getByHistory.urls"))
 ]
