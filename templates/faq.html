@@ -1,243 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "partials/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+{% block content %}
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-
-        :root {
-            --main-color: #F7FAFF;
-            --black: #2F4F4F;
-            --blue: #4169E1;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;
-            background: var(--main-color);
-            font-family: 'Roboto', sans-serif;
-            color: var(--black);
-        }
-
-        header {
-            z-index: 1000;
-            position: fixed;
-            background: var(--main-color);
-            width: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 30px 75px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s ease;
-        }
-        
-        header .logo {
-            font-family: 'Righteous', cursive;
-            font-size: 32px;
-            color: var(--blue);
-        }
-        
-        header .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        header .navbar .menus a {
-            position: relative;
-            font-size: 18px;
-            padding: 5px 15px;
-            border-bottom: 2px solid transparent;
-            transition: 0.3s ease;
-        }
-        
-        header .navbar .menus a:hover {
-            color: var(--blue);
-            border-bottom: 2px solid #4169E1;
-            padding: 5px 15px;
-        }
-        
-        header .navbar .icon {
-            padding-left: 15px;
-            padding-right: 0px;
-        }
-        
-        header .navbar .icon .material-symbols-outlined {
-            font-size: 24px;
-            color: var(--main-color);
-            background: var(--blue);
-            border: 2px solid transparent;
-            border-radius: 30px;
-            box-shadow: 1px 1px 2px 0px #A9A9A9;
-            padding: 7.5px;
-            cursor: pointer;
-        }
-        
-        header .navbar .icon .material-symbols-outlined:hover {
-            color: var(--blue);
-            background: var(--main-color);
-            border: 2px solid #4169E1;
-            box-shadow: 1px 1px 2px 0px #A9A9A9;
-        }
-
-        .faq {
-            padding-top:100px;
-            max-width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            flex-wrap: wrap;
-            gap: 5px;
-            
-        }
-
-        .faq h1 {
-            color: black;
-            font-size: 40px;
-            font-weight: 600;
-            position: relative;
-            left: 50%%;
-            margin-bottom: 1.75rem;
-        }
-
-        .faq h1 span {
-            color: blue;
-            font-size: 40px;
-            font-weight: 500;
-            font-family: 'Righteous', cursive;
-            margin-bottom: 1.75rem;
-        }
-
-        .question h2,
-        .question p,
-        .answer h2,
-        .answer p {
-            background-color: transparent;
-            display: inline-flex;
-
-        }
-
-        .question h2,
-        .question p {
-
-            color: #F7FAFF
-        }
-
-        .answer h2,
-        .answer p {
-            color: #4169E1;
-        }
-
-        .question p,
-        .answer p {
-            margin-left: 20px;
-            text-align: justify
-        }
-
-        .question h2,
-        .answer h2 {
-            font-family: 'Righteous', cursive;
-            font-size: 40px;
-        }
-
-        .part {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            width: 100%;
-        }
-
-        .question {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 41.6666667%;
-            min-height: fit-content;
-            background-color: #4169E1;
-            color: #3B82F6;
-            border-radius: 0.75rem;
-            padding: 16px 16px;
-            margin-bottom: 16px
-        
-        }
-
-        .answer {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 41.6666667%;
-            min-height: fit-content;
-            background-color: #ffffff;
-            border: 1px solid #4169E1;
-            color: #3B82F6;
-            border-radius: 0.75rem;
-            padding: 16px 16px;
-            margin-bottom: 16px
-        }
-
-        .qna {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            width: 100%;
-          }
-      
-          @media (min-width: 640px) {
-            .qna {
-              width: 83.3333333%; /* (10/12) * 100% */
-            }
-          }
-
-    </style>
-</head>
-
-<body>
-        <header>
-            <a href="./" class="logo">SEAREQ</a>
-    
-            <nav class="navbar">
-                <div class="menus">
-                    <a href="major">Major</a>
-                    <a href="about">About</a>
-                    <a href="faq">FAQ</a>
-                </div>
-    
-                <div class="icon">
-                    <a href="search">
-                        <span class="material-symbols-outlined">search</span>
-                    </a>
-                </div>
-            </nav>
-        </header>
-
-        <div class="faq">
-            <div class="qna">
+        <div class="contents">
+            <div class="contain">
                 <div class="part">
                     <h1><span>SEAREQ</span>uestion</h1>
                 </div>
                 <div class="part">
-                    <div class="question">
+                    <div class="box1">
                         <h2>Q</h2>
                         <P>Bagaimana cara Saya dapat menggunakan website ini?</P>
                     </div>
-                    <div class="answer">
+                    <div class="box2">
                         <h2>A</h2>
                         <P>Mekanisme penggunaan website SEAREQ dapat digunakan dengan 
                             memasukkan jurusan yang Anda inginkan. Kemudian Sistem Kami akan 
@@ -246,22 +21,22 @@
                     </div>
                 </div>
                 <div class="part">
-                    <div class="question">
+                    <div class="box1">
                         <h2>Q</h2>
                         <P>Apakah semua jurusan bisa dilakukan pencarian?</P>
                     </div>
-                    <div class="answer">
+                    <div class="box2">
                         <h2>A</h2>
                         <P>Tentu saja, Ayo temukan kebutuhan yang perlu kamu asah sedini mungkin!</P>
                     </div>
                 </div>
                 <div class="part">
-                    <div class="question">
+                    <div class="box1">
                         <h2>Q</h2>
                         <P>Apakah data yang ditampilkan up-to-date dengan kebutuhan saat ini?</P>
                     </div>
 
-                    <div class="answer">
+                    <div class="box2">
                         <h2>A</h2>
                         <P>SEAREQ pasti dan akan terus berkomitmen untuk melakukan pembaharuan bagi setiap jurusannya.</P>
                     </div>
@@ -269,6 +44,5 @@
                 </div>
             </div>
         </div>
-</body>
 
-</html>
+        {% endblock %}
