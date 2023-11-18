@@ -27,8 +27,8 @@ def preprocess_data(job_descriptions):
     # Replace newline characters with a space
     job_descriptions = [description.replace('\n', ' ') for description in job_descriptions]
 
-    # Replace consecutive whitespaces with a single space
-    job_descriptions = [re.sub(r'\s+', ' ', description, flags=re.UNICODE) for description in job_descriptions]
+    # Replace consecutive whitespaces with a single space and Remove numbers
+    job_descriptions = [re.sub(r'\s+', ' ', re.sub(r'\d', '', description), flags=re.UNICODE) for description in job_descriptions]
 
     # Replace specific characters
     job_descriptions = [description.replace('●', '').replace('’', '').replace('–', '') for description in job_descriptions]
@@ -49,17 +49,14 @@ def preprocess_data(job_descriptions):
     stop_words = set(stopwords.words('english'))
 
     # Remove stopwords from the text
-    filtered_words = [[word for word in sentence if word.lower() not in stop_words] for sentence in lemmatized_words]
+    preprocessed_separate_docs_tokenized = [[word for word in sentence if word.lower() not in stop_words] for sentence in lemmatized_words]
 
     # Join the filtered words back into a sentence
-    preprocessed_jobListings = [' '.join(sentence) for sentence in filtered_words]
+    preprocessed_separate_docs = [' '.join(sentence) for sentence in preprocessed_separate_docs_tokenized]
 
     # Join the preprocessed job listings into one full sentence
-    full_sentence = ' '.join(preprocessed_jobListings)
+    preprocessed_one_sentence = ' '.join(preprocessed_separate_docs)
 
-    # Remove numbers using regex
-    preprocessed_fulltext = re.sub(r'\d+', '', full_sentence)
-
-    return (preprocessed_fulltext,lemmatized_words,preprocessed_jobListings)  
+    return (preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)  
 
 
