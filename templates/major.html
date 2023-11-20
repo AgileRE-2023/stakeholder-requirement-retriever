@@ -29,12 +29,9 @@
                         <h2>Arts and Humanities</h2>
                         <div class="listmajor">
                             <ul class="major">
-                                <a href="/history/major/find?q=information+systems"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
-                                <a href="output"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
+                                {% for item in majorAH %}
+                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -45,12 +42,9 @@
                         <h2>Engineering and Technology</h2>
                         <div class="listmajor">
                             <ul class="major">
-                                <a href="/history/major/find?q=information+systems"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
-                                <a href="output"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
+                                {% for item in majorET %}
+                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -61,12 +55,9 @@
                         <h2>Life Sciences and Medicine</h2>
                         <div class="listmajor">
                             <ul class="major">
-                                <a href="/history/major/find?q=information+systems"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
-                                <a href="output"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
+                                {% for item in majorLSM %}
+                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -77,17 +68,27 @@
                         <h2>Natural Sciences</h2>
                         <div class="listmajor">
                             <ul class="major">
-                                <a href="/history/major/find?q=information+systems"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
-                                <a href="output"><li>information system</li></a>
-                                <a href="output"><li>information management</li>
-                                <a href="output"><li>information system management</li>
+                                {% for item in majorNS %}
+                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </div>
                 
+                <div class="part2">
+                    <div class="box2">
+                        <h2>Social Sciences and Management</h2>
+                        <div class="listmajor">
+                            <ul class="major">
+                                {% for item in majorSSM %}
+                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

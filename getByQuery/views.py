@@ -25,3 +25,12 @@ def getByQuery(request):
         # return HttpResponse(f'your input value: {result}')
     else:
         return HttpResponse("nowhere to go!!!")
+
+from getByQuery.models import Prodi
+
+def majorView(request):
+    major = Prodi.objects.all()
+    context = {
+        'major':major
+    }
+    return render(request, 'major.html', context)
