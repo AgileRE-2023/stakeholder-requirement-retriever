@@ -1,99 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-    background-color: #F7FAFF;
-  }
+body {
+  background-color: #f7faff;
+}
 
 /* ini batas awal navbar */
-header{
-    z-index: 1000;
-    position: fixed;
-    background: #F7FAFF;
-    width: 100%;
-    top: 0; left: 0; right: 0;
-    padding: 30px 75px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.1s ease;
+header {
+  z-index: 1000;
+  position: fixed;
+  background: #f7faff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.1s ease;
 }
 
-header .logo{
-    font-family: 'Righteous', cursive;
-    font-size: 32px;
-    color: #4169E1;
+header .logo {
+  font-family: "Righteous", cursive;
+  font-size: 32px;
+  color: #4169e1;
 }
 
-header .navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header .navbar .menus a{
-    position: relative;
-    font-size: 18px;
-    padding: 5px 15px;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s ease;
-    color: #2F4F4F;
+header .navbar .menus a {
+  position: relative;
+  font-size: 18px;
+  padding: 5px 15px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s ease;
+  color: #2f4f4f;
 }
 
-header .navbar .menus a:hover{
-    color: #4169E1;
-    border-bottom: 2px solid #4169E1;
-    padding: 5px 15px;
+header .navbar .menus a:hover {
+  color: #4169e1;
+  border-bottom: 2px solid #4169e1;
+  padding: 5px 15px;
 }
 
-header .navbar .icon{
-    padding-left: 15px;
-    padding-right: 0px;
+header .navbar .icon {
+  padding-left: 15px;
+  padding-right: 0px;
 }
 
-header .navbar .icon .material-symbols-outlined{
-    font-size: 24px;
-    color:#F7FAFF;
-    background: #4169E1;
-    border: 2px solid transparent;
-    border-radius: 30px;
-    box-shadow: 1px 1px 2px 0px #A9A9A9;
-    padding: 7.5px;
-    cursor: pointer;
+header .navbar .icon .material-symbols-outlined {
+  font-size: 24px;
+  color: #f7faff;
+  background: #4169e1;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  box-shadow: 1px 1px 2px 0px #a9a9a9;
+  padding: 7.5px;
+  cursor: pointer;
 }
 
-header .icon .material-symbols-outlined:hover{
-    color: #4169E1;
-    background: #F7FAFF;
-    border: 2px solid #4169E1;
-    box-shadow: 1px 1px 2px 0px #A9A9A9;
+header .icon .material-symbols-outlined:hover {
+  color: #4169e1;
+  background: #f7faff;
+  border: 2px solid #4169e1;
+  box-shadow: 1px 1px 2px 0px #a9a9a9;
 }
 
-header .navbar .icon .material-symbols-outlined:hover{
-    color: #4169E1;
-    background: #F7FAFF;
-    border: 2px solid #4169E1;
-    box-shadow: 1px 1px 2px 0px #A9A9A9;
+header .navbar .icon .material-symbols-outlined:hover {
+  color: #4169e1;
+  background: #f7faff;
+  border: 2px solid #4169e1;
+  box-shadow: 1px 1px 2px 0px #a9a9a9;
 }
 /* ini batas akhir navbar */
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
 
 /* scrollbar */
 
 /* ini batas awal pie chart */
-
-
 
 /* ini batas akhir pie chart */
