@@ -43,7 +43,7 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorET %}
-                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -56,7 +56,7 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorLSM %}
-                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -69,7 +69,7 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorNS %}
-                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorSSM %}
-                                <a href="/history/major/find?q=information+systems"><li>{{ item.nama_prodi }}</li></a>
+                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
                                 {% endfor %}
                             </ul>
                         </div>
