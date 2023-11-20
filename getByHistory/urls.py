@@ -5,5 +5,6 @@ from stakeholder_requirement import views
 from . import views
 
 urlpatterns = [
-    path('major', views.major),
+    path('major', views.major, name="major"),
+    path('major/find/', views.history_major_view, name='history_major'),
 ]  
