@@ -157,7 +157,7 @@ def mainProcess(preprocessed_one_sentence, preprocessed_separate_docs,preprocess
     nouns_in_array = ' '.join(nouns)
 
     # Filtering words in each job listing to only include nouns_in_array after POS tagging, also without blacklist_words
-    blacklist_words = ['job', 'experience', 'work', 'solution', 'technology', 'information', 'knowledge', 'requirement','understanding', 'working', 'product', 'process', 'ability', 'good', 'skill', 'year', 'learn','need', 'excellent', 'implement','team','project','development','business', 'software', 'system', 'design', 'client','minimum']
+    blacklist_words = ['job','degree', 'experience', 'work', 'technology', 'information', 'good', 'skill', 'year', 'learn','need', 'excellent','minimum','bachelor','science','engineering','gpa','team']
     def word_exists_as_whole_word(word, text):
         pattern = r'\b' + re.escape(word) + r'\b'
         return bool(re.search(pattern, text))
