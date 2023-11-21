@@ -157,7 +157,7 @@ def mainProcess(preprocessed_one_sentence, preprocessed_separate_docs,preprocess
     nouns_in_array = ' '.join(nouns)
 
     # Filtering words in each job listing to only include nouns_in_array after POS tagging, also without blacklist_words
-    blacklist_words = ['job','degree', 'experience', 'work', 'technology', 'information', 'good', 'skill', 'year', 'learn','need', 'excellent','minimum','bachelor','science','engineering','gpa','team']
+    blacklist_words = ['job','degree', 'experience', 'work', 'technology', 'information', 'good', 'skill', 'year', 'learn','need', 'excellent','minimum','bachelor','science','engineering','gpa','team','working','knowledge']
     def word_exists_as_whole_word(word, text):
         pattern = r'\b' + re.escape(word) + r'\b'
         return bool(re.search(pattern, text))
@@ -181,4 +181,4 @@ def mainProcess(preprocessed_one_sentence, preprocessed_separate_docs,preprocess
 
     final_top_terms = second_TF_IDF(combine_all_terms,preprocessed_separate_docs)
 
-    return final_top_terms
+    return final_top_terms[:50]
