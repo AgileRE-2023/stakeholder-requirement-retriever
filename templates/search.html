@@ -16,13 +16,17 @@
             <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
               {% csrf_token %}
                 <div class="search-box-box">
-                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                    <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
                     <input type="text" id="input-box" placeholder="What is your major" autocomplete="off"  name="getByQuery">
                 </div>
 
-                <button type="reset">
-                  <span class="material-symbols-outlined">close</span>
+                <div class="search-box-box">
+
+                <button id="reset-button" type="reset" id="reset-button">
+                    Reset
                 </button>
+                <a href="./"><span class="material-symbols-outlined">close</span></a>
+            </div>
             </form>
 
             <div class="result-box">

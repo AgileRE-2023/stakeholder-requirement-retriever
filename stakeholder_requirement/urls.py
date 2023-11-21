@@ -23,7 +23,6 @@ urlpatterns = [
     path('about', views.about,name='about'),
     path('faq', views.faq,name='faq'),
     path('', include("getByQuery.urls")),
-    # path('information-system', views.output),
     path('query/',include("getByQuery.urls")),
     path('history/',include("getByHistory.urls"),name='history_major')
 ]

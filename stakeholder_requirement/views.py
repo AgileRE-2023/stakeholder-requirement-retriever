@@ -6,3 +6,6 @@ def about(request):
 
 def faq(request): 
     return render(request, "faq.html")
+
+def major(request): 
+    return render(request, "major.html")

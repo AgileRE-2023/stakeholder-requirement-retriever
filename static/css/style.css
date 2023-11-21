@@ -228,6 +228,11 @@ header .navbar .icon .material-symbols-outlined:hover{
 
 
 /* ini batas awal search section */
+a, #search-button{
+    display: flex;
+    align-items: center;
+}
+
 .search .sb-container .search-box{
     display: flex;
     justify-content: space-between;
@@ -258,6 +263,12 @@ header .navbar .icon .material-symbols-outlined:hover{
     cursor: pointer;
 }
 
+.search .sb-container .search-box .search-box-box #reset-button{
+    font-size: 14px;
+    padding-right: 20px;
+    color: red;
+}
+
 .search .sb-container .search-box .search-box-box input{
     flex: 1;
     border: none;
@@ -286,7 +297,7 @@ header .navbar .icon .material-symbols-outlined:hover{
 
 .search .sb-container .result-box ul li{
     background: transparent;
-    padding: 10px 70px;
+    padding: 10px 36px;
     cursor: pointer;
     transition: 0.3 ease;
 }
