@@ -4,6 +4,7 @@ from .preprocess import preprocess_data
 from .scrapingKalibrr import scrapingKalibrr
 from .mainprocess import mainProcess
 from .validateInput import validateInput
+from .validateTerms import validateTerms
 from getByQuery.models import Scraping
 from getByHistory.models import History
 from datetime import datetime, timedelta
@@ -64,16 +65,18 @@ def getByQuery(request):
 
         top_terms_list = mainProcess(preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)
 
+        validatedTermsAndDescription = validateTerms(top_terms_list)
+
         # saving terms extraction to db
         try:
-            converted_terms_data = json.dumps(top_terms_list)
+            converted_terms_data = json.dumps(validatedTermsAndDescription)
             # Save the serialized array into the Scraping model
             history_instance = History(date_generated=dateNow, exp_date=expired_date, requirements=converted_terms_data, id_prodi=prodi_instance)
             history_instance.save()
         except:
             return HttpResponse("Something went wrong while saving scraping result!", status=500)
         
-        context  = {'top_terms_list': top_terms_list,'query':input_value}
+        context  = {'terms_with_description': validatedTermsAndDescription,'query':input_value}
         return render(request,'output.html', context)
     else:
         return HttpResponse("nowhere to go!!!")
