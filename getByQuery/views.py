@@ -4,7 +4,11 @@ from .preprocess import preprocess_data
 from .scrapingKalibrr import scrapingKalibrr
 from .mainprocess import mainProcess
 from .validateInput import validateInput
+from getByQuery.models import Scraping
+from getByHistory.models import History
+from datetime import datetime, timedelta
 from getByQuery.models import Prodi
+import json
 # Create your views here.
 def home(request): 
     return render(request, "home.html")
@@ -31,16 +35,49 @@ def search(request):
 
 def getByQuery(request):
     if request.method == 'POST':
+        # Get the request body to get user input
         input_value = request.POST.get('getByQuery')
-        clean_input = validateInput(input_value)
+        try:
+            clean_input, prodi_instance = validateInput(input_value)
+        except:
+            return HttpResponse("Input is not on the major list!", status=404)
+        
+        # Get data from kalibrr
         jobDescription = scrapingKalibrr(clean_input)
+
+        # Preprocess data
         preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized = preprocess_data(jobDescription)
+
+        dateNow = datetime.now()
+        # Add 60 days
+        expired_date = dateNow + timedelta(days=60)
+        # saving preprocessed scraping result to db
+        try:
+            # json.dumps() to convert to JSON-formatted string 
+            # json.loads() to make it back to the original array later
+            converted_preprocessed_data = json.dumps(preprocessed_separate_docs)
+            # Save the serialized array into the Scraping model
+            scraping_instance = Scraping(teks=converted_preprocessed_data,tgl_scrap=dateNow,id_prodi=prodi_instance)
+            scraping_instance.save()
+        except:
+            return HttpResponse("Something went wrong while saving scraping result!", status=500)
+
         top_terms_list = mainProcess(preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)
+
+        # saving terms extraction to db
+        try:
+            converted_terms_data = json.dumps(top_terms_list)
+            # Save the serialized array into the Scraping model
+            history_instance = History(date_generated=dateNow, exp_date=expired_date, requirements=converted_terms_data, id_prodi=prodi_instance)
+            history_instance.save()
+        except:
+            return HttpResponse("Something went wrong while saving scraping result!", status=500)
+        
         context  = {'top_terms_list': top_terms_list,'query':input_value}
         return render(request,'output.html', context)
-        # return HttpResponse(f'your input value: {result}')
     else:
         return HttpResponse("nowhere to go!!!")
+
 
 def majorView(request):
     major = Prodi.objects.all()
