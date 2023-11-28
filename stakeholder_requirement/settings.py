@@ -131,3 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# import requests
+
+# # Set a default User-Agent for API call
+# requests_default_headers = requests.utils.default_headers()
+# requests_default_headers.update({
+#     'User-Agent': 'stakeholder_requirements_retrieval/1.0 (Contact: achmadaffandifauzan@gmail.com)',
+# })

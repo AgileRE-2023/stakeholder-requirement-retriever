@@ -108,12 +108,15 @@
             {{query}}
           </div>
         </div>
-        {% for term in top_terms_list %}
+        {% for termObj in terms_with_description %}
         <div
-          class="flex flex-row h-14 w-4/5 text-xl justify-between items-center bg-blue-500 text-white rounded-xl px-5"
+          class="flex flex-col w-4/5 text-xl justify-between items-center bg-blue-500 text-white rounded-xl px-5"
         >
-          <div class="uppercase">{{term}}</div>
-          <div class="font-bold text-2xl">{{ forloop.counter }}</div>
+          <div class="flex flex-row w-full justify-between items-center">
+            <div class="uppercase">{{termObj.term}}</div>
+            <div class="font-bold text-2xl">{{ forloop.counter }}</div>
+          </div>
+          <div class="text-xs">{{termObj.summary}}</div>
         </div>
         {% endfor %}
       </div>

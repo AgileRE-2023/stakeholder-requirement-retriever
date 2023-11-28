@@ -9,7 +9,7 @@ def major(request):
     return render(request, "major.html")
 
 def history_major_view(request):
-    search_query = request.GET.get('q', '')
+    search_query = request.GET.get('q', '').replace(" ","+").lower()
     return HttpResponse(search_query)
 
 from getByQuery.models import Prodi

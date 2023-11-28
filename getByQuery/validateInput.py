@@ -1,6 +1,7 @@
 from deep_translator import GoogleTranslator
 import string
 import re
+from .models import Prodi
 
 def remove_punctuation_and_html(input_string):
     # Remove punctuation
@@ -14,7 +15,13 @@ def remove_punctuation_and_html(input_string):
 
 def validateInput(input):
     clean_input = remove_punctuation_and_html(input)
+    
     # Translate to english
-    translated_text = GoogleTranslator(source='auto', target='en').translate(clean_input)
-    final_input = translated_text.replace(" ", "+")
-    return final_input
+    final_input = GoogleTranslator(source='auto', target='en').translate(clean_input)
+    # Check if the translated input is in the list of nama_prodi, __iexact is used for a case-insensitive match.
+
+    try:
+        prodi_instance = Prodi.objects.get(nama_prodi__iexact=final_input)
+        return final_input, prodi_instance
+    except Prodi.DoesNotExist:
+        return final_input  # Return final_input only if the input is not in the list of nama_prodi

@@ -1,45 +1,15 @@
+function convertStringToArray(stringArray) {
+  const replacedString = stringArray.replace(/'/g, '"');
+  return JSON.parse(replacedString);
+}
 document.addEventListener("DOMContentLoaded", function () {
-  var majors = [
-    "Kebidanan",
-    "Kedokteran",
-    "Ilmu Hukum",
-    "Akuntansi",
-    "Manajemen",
-    "Ekonomi Pembangunan",
-    "Ekonomi Islam",
-    "Farmasi",
-    "Kedokteran Hewan",
-    "Sosiologi",
-    "Ilmu Komunikasi",
-    "Ilmu Hubungan Internasional",
-    "Ilmu Administrasi",
-    "Antropologi",
-    "Ilmu Informasi dan Perpustakaan",
-    "Ilmu Politik",
-    "Matematika",
-    "Sistem Informasi",
-    "Statistika",
-    "Fisika",
-    "Teknik Biomedis",
-    "Kimia",
-    "Biologi",
-    "Teknik Lingkungan",
-    "Kesehatan Masyarakat",
-    "Ilmu Gizi",
-    "Psikologi",
-    "Ilmu Sejarah",
-    "Sastra Jepang",
-    "Sastra Indonesia",
-    "Sastra Inggris",
-    "Keperawatan",
-    "Akuakultur",
-    "Teknologi Hasil Perikanan",
-    "Teknik Robotika dan Kecerdasan Buatan",
-    "Teknik Elektro",
-    "Teknik Industri",
-    "Rekayasa Nano Teknologi",
-    "Teknologi Sains Data",
-  ];
+  const listMajor = document.querySelector("#prodiList")
+  if (listMajor) {
+    console.log(listMajor.value)
+    var majors = convertStringToArray(listMajor.value)
+  } else {
+    var majors = []
+  }
 
   document.getElementById("input-box").addEventListener("input", function () {
     var query = this.value.toLowerCase();

@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 def scrapingKalibrr(inputValue):
-    url = "https://www.kalibrr.com/kjs/job_board/search?limit=50&offset=50&text="+inputValue
+    url = "https://www.kalibrr.com/_next/data/_yMMj8fCE0xbsEn4-4ZtH/en/home/te/"+inputValue.replace(" ","-")+".json?param=te&param="+inputValue.replace(" ","-")
     job_descriptions = []  # Initialize a list to store job descriptions
 
     response = requests.get(url)
@@ -10,9 +10,9 @@ def scrapingKalibrr(inputValue):
     if response.status_code == 200:
         data = response.json()
 
-        for job in data["jobs"]:
-            qualifications = job.get("qualifications", "")
-            description = job.get("description", "")
+        for job in data["pageProps"]["jobs"]:
+            qualifications = job["qualifications"]
+            description = job["description"]
 
             # Remove HTML tags 
             qualifications_text = BeautifulSoup(qualifications, "html.parser").get_text()
