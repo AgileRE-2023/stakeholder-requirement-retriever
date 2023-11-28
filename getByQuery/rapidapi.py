@@ -1,6 +1,6 @@
 import requests
 
-def getJobDescriptionJobWizRapidAPI(query):
+def jobWizRapidAPI(query):
     url = "https://job-search-api1.p.rapidapi.com/v1/job-description-search"
 
 
@@ -9,7 +9,7 @@ def getJobDescriptionJobWizRapidAPI(query):
         "X-RapidAPI-Host": "job-search-api1.p.rapidapi.com"
     }
     job_descriptions = []
-    for i in range(1,6):
+    for i in range(1,4):
         querystring = {"q":query,"page":str(i)}
         response = requests.get(url, headers=headers, params=querystring)
         if (response.status_code == 200):

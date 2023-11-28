@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .preprocess import preprocess_data
 from .scrapingKalibrr import scrapingKalibrr
+from .rapidapi import jobWizRapidAPI
 from .mainprocess import mainProcess
 from .validateInput import validateInput
 from .validateTerms import validateTerms
@@ -43,8 +44,12 @@ def getByQuery(request):
         except:
             return HttpResponse("Input is not on the major list!", status=404)
         
-        # Get data from kalibrr
-        jobDescription = scrapingKalibrr(clean_input)
+        # Get data from kalibrr and JobWiz RapidAPI
+        data_kalibrr = scrapingKalibrr(clean_input)
+        data_JobWiz = jobWizRapidAPI(clean_input)
+
+        # Append data
+        jobDescription = data_kalibrr + data_JobWiz
 
         # Preprocess data
         preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized = preprocess_data(jobDescription)
