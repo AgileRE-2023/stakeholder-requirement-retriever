@@ -41,10 +41,6 @@
     overflow: auto;
 }
 
-::-webkit-scrollbar {
-    width: 0.1px;
-}
-
 li {
     margin-bottom: 17px; 
 }
@@ -239,20 +235,35 @@ li {
     flex-grow: 1;
 }
 
-@media only screen and (max-width:1200px){
-    .cloud{
-        
+@media only screen and (max-width:1400px){
+    .judul{
+        font-size: 20px;
+        font-weight: 400;
     }
+
+    .judul2{
+        font-size: 36px;
+    }
+
+    .col_o-2{
+        flex-basis: 50%;
+    }
+    .col_o-1{
+        flex-basis: 50%;
+    }
+
     .see_more{
         margin: 100px 100px;
     }
 
-    .content_o{
-        width: 90%;
+
+    .isi .tab_o .content_o{
+        width: 80%;
     }
+
     .kotak_o{
         top: 250px;
-        width: 87%; 
+        width: 80%; 
         height: 60px; 
     }
     .skill{ 
@@ -275,10 +286,7 @@ li {
         margin: 50px 0;
     }
     .col_o-2{
-        flex-basis: 100%;
-        margin-bottom: 70px;
-        margin-top: 50px;
-        margin-left: 50px;
+        margin: 50px 10px 10px 10px;
     }
     .col_o-1{
         flex-basis: 100%;
@@ -288,6 +296,10 @@ li {
         width: 90%; 
         height: 60px; 
     }
+    .isi .tab_o .content_o{
+        width: 90%;
+    }
+    
     .skill{ 
         font-size: 20px; 
     }
