@@ -9,3 +9,6 @@ def faq(request):
 
 def major(request): 
     return render(request, "major.html")
+
+def output(request): 
+    return render(request, "output.html")
