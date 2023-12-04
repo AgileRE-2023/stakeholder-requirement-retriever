@@ -1,125 +1,229 @@
+<!-- {% extends "partials/base.html" %}
+{% block content %} -->
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>output</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="/static/css/style_output.css" />
+    <!-- <link rel="stylesheet" href="./static/css/swiper.css" /> -->
+    <link rel="stylesheet" href="/static/css/index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OUTPUT</title>
-  <link rel="stylesheet" href="/static/css/style_output.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  <body>
+    <header>
+      <a href="./" class="logo">SEAREQ</a>
 
-<body>
-  <header>
-    <a href="/" class="logo">SEAREQ</a>
+      <nav class="navbar">
+        <div class="menus">
+          <a href="major">Major</a>
+          <a href="about">About</a>
+          <a href="faq">FAQ</a>
+        </div>
 
-    <nav class="navbar">
-      <div class="menus">
-        <a href="/history/major">Major</a>
-        <a href="/about">About</a>
-        <a href="/faq">FAQ</a>
+        <div class="icon">
+          <a href="search">
+            <span class="material-symbols-outlined">search</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <div class="row_o">
+      <div class="col_o-1">
+        <section class="cloud"></section>
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jasondavies/d3-cloud/build/d3.layout.cloud.js"></script>
+        <script src="../static/js/wordcloud.js"></script>
+
+        <span class="newest">
+          <a href="">see new version</a>
+        </span>
+        <span class="last_up">*Last Updated on Dec 2</span>
       </div>
 
-      <div class="icon">
-        <a href="/search">
-          <span class="material-symbols-outlined">search</span>
-        </a>
-      </div>
-    </nav>
-  </header>
-
-  <div class="max-w-full min-h-screen flex flex-row flex-wrap justify-around content-center flex-wrap">
-    <div class="md:w-5/12 mb-28 mt-20 flex flex-col items-center gap-10">
-      <div class="pie">
-        <canvas id="myPieChart" width="600" height="400"></canvas>
-
-        <script>
-          var ctx = document.getElementById("myPieChart").getContext("2d");
-
-          var data = {
-            datasets: [
-              {
-                data: [10, 40, 5, 2, 3, 5, 5, 10, 5, 15],
-                backgroundColor: [
-                  "#8f98ec",
-                  "#4169E1",
-                  "#aeb1f1",
-                  "#e5e4fb",
-                  "#cacaf6",
-                  "#aeb1f1",
-                  "#aeb1f1",
-                  "#8f98ec",
-                  "#aeb1f1",
-                  "#6e80e7",
-                ],
-              },
-            ],
-            labels: [
-              "Skill 1",
-              "Skill 2",
-              "Skill 3",
-              "Skill 4",
-              "Skill 5",
-              "Skill 6",
-              "Skill 7",
-              "Skill 8",
-              "Skill 9",
-              "Skill 10",
-            ],
-          };
-
-          var options = {
-            responsive: true,
-            maintainAspectRatio: false,
-          };
-
-          var myPieChart = new Chart(ctx, {
-            type: "pie",
-            data: data,
-            options: options,
-          });
-        </script>
-      </div>
-      <div class="min-h-fit rounded-xl border shadow-lg py-10 px-10 w-4/5 bg-white">
-        <div class="font-semibold mb-2">Number of Graduates</div>
-        <div>
-          <p>Skill 1001, Skill 1001, Skill 1001, Skill 1001, Skill 1001,</p>
-          <p>Skill 1001, Skill 1001, Skill 1001, Skill 1001, Skill 1001</p>
+      <div class="col_o-2">
+        <div class="output">
+          <div class="judul">Top 10 Requirements for</div>
+          <div class="judul2">Information System</div>
+          <div class="isi">
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc1" />
+              <div class="kotak_o">
+                <label for="acc1">
+                  <span class="skill">Skill</span>
+                  <span class="no_skill">1</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc2" />
+              <div class="kotak_o">
+                <label for="acc2">
+                  <span class="skill">Skill</span>
+                  <span class="no_skill">2</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc3" />
+              <div class="kotak_o">
+                <label for="acc3">
+                  <span class="skill">Skill</span>
+                  <span class="no_skill">3</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc4" />
+              <div class="kotak_o">
+                <label for="acc4"
+                  ><span class="skill">Skill</span>
+                  <span class="no_skill">4</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc5" />
+              <div class="kotak_o">
+                <label for="acc5"
+                  ><span class="skill">Skill</span>
+                  <span class="no_skill">5</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div class="tab_o">
+              <input type="radio" name="acc" id="acc6" />
+              <div class="kotak_o">
+                <label for="acc6"
+                  ><span class="skill">Skill</span>
+                  <span class="no_skill">6</span>
+                </label>
+              </div>
+              <div class="content_o">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="see_more">Scroll up to see more</div>
         </div>
       </div>
-      <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
-        {% csrf_token %}
-        <div class="background_button">
-          <p href="search" class="search-box">This is Button Simulator</p>
-          <input type="text" value="{{ query }}" name="getByQuery" class="hidden">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
     </div>
-
-    <div class="md:w-5/12 flex flex-col justify-center items-center gap-3 mt-20 pb-10">
-      <div class="mb-4 text-center">
-        <div class="text-xl my-8 text-slate-500 mb-1">
-          Top 10 Requirements for
-        </div>
-        <div class="text-5xl font-bold text-slate-700 uppercase">
-          {{query}}
-        </div>
-      </div>
-      {% for termObj in terms_with_description %}
-      <div class="flex flex-col w-4/5 text-xl justify-between items-center bg-blue-500 text-white rounded-xl px-5">
-        <div class="flex flex-row w-full justify-between items-center">
-          <div class="uppercase">{{termObj.term}}</div>
-          <div class="font-bold text-2xl">{{ forloop.counter }}</div>
-        </div>
-        <div class="text-xs">{{termObj.summary}}</div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
+
+<!-- <div
+        class="md:w-5/12 flex flex-col justify-center items-center gap-3 mt-20 pb-10"
+      >
+        <div class="mb-4 text-center">
+          <div class="text-xl my-8 text-slate-500 mb-1">
+            Top 10 Requirements for
+          </div>
+          <div class="text-5xl font-bold text-slate-700 uppercase">
+            {{query}}
+          </div>
+        </div>
+        {% for termObj in terms_with_description %}
+        <div
+          class="flex flex-col w-4/5 text-xl justify-between items-center bg-blue-500 text-white rounded-xl px-5"
+        >
+          <div class="flex flex-row w-full justify-between items-center">
+            <div class="uppercase">{{termObj.term}}</div>
+            <div class="font-bold text-2xl">{{ forloop.counter }}</div>
+          </div>
+          <div class="text-xs">{{termObj.summary}}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html> -->
+
+<!-- {% endblock %} -->
