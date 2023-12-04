@@ -2,7 +2,7 @@ import string
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-from deep_translator import GoogleTranslator
+import translators as ts
 import re
 
 nltk.download('punkt')
@@ -12,7 +12,7 @@ def translate_array(array):
     translated_array = []
 
     for text_to_translate in array:
-        translated_text = GoogleTranslator(source='auto', target='en').translate(text_to_translate)
+        translated_text = ts.translate_text(text_to_translate,from_language='auto',to_language='en',translator='google')
         translated_array.append(translated_text)
 
     return translated_array
@@ -33,7 +33,7 @@ def preprocess_data(job_descriptions):
     # Replace consecutive whitespaces with a single space and Remove numbers
     job_descriptions = [re.sub(r'\s+', ' ', re.sub(r'\d', '', description), flags=re.UNICODE) for description in job_descriptions]
 
-    # Translate to english
+    # # Translate to english
     # translated_data = translate_array(job_descriptions)
 
     # # Tokenize each sentence and convert words to lowercase

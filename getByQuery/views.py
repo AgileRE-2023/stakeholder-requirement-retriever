@@ -81,7 +81,7 @@ def getByQuery(request):
         except:
             return HttpResponse("Something went wrong while saving scraping result!", status=500)
         
-        context  = {'terms_with_description': validatedTermsAndDescription,'query':input_value,'id_prodi':prodi_instance.id_prodi}
+        context  = {'terms_with_description': validatedTermsAndDescription,'query':prodi_instance.nama_prodi,'id_prodi':prodi_instance.id_prodi}
         return render(request,'output.html', context)
     else:
         return HttpResponse("nowhere to go!!!")
