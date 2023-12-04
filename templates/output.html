@@ -13,34 +13,35 @@
     />
     <link rel="stylesheet" href="/static/css/style_output.css" />
     <!-- <link rel="stylesheet" href="./static/css/swiper.css" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/static/css/index.css" />
   </head>
 
   <body>
-    <header>
-      <a href="./" class="logo">SEAREQ</a>
+    <header class="py-3">
+      <a href="/" class="logo">SEAREQ</a>
 
       <nav class="navbar">
         <div class="menus">
-          <a href="major">Major</a>
-          <a href="about">About</a>
-          <a href="faq">FAQ</a>
+          <a href="/history/major">Major</a>
+          <a href="/about">About</a>
+          <a href="/faq">FAQ</a>
         </div>
 
         <div class="icon">
-          <a href="search">
+          <a href="/search">
             <span class="material-symbols-outlined">search</span>
           </a>
         </div>
       </nav>
     </header>
-    <div class="row_o">
+    <div class="row_o mt-[75px]">
       <div class="col_o-1">
         <section class="cloud"></section>
 
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/jasondavies/d3-cloud/build/d3.layout.cloud.js"></script>
-        <script src="../static/js/wordcloud.js"></script>
+        <script src="/static/js/wordcloud.js"></script>
 
         <span class="newest">
           <a href="">see new version</a>
@@ -50,147 +51,32 @@
 
       <div class="col_o-2">
         <div class="output">
-          <div class="judul">Top 10 Requirements for</div>
-          <div class="judul2">Information System</div>
+          <div class="judul pt-1">Top Requirements for</div>
+          <div class="judul2">{{query}}</div>
           <div class="isi">
+            {% for termObj in terms_with_description %}
             <div class="tab_o">
-              <input type="radio" name="acc" id="acc1" />
+              <input type="radio" name="acc" id="acc{{ forloop.counter }}" />
+              <input
+                class="scoreHidden"
+                style="display: none"
+                type="text"
+                value="{{termObj.term}}_{{termObj.score}}"
+              />
               <div class="kotak_o">
-                <label for="acc1">
-                  <span class="skill">Skill</span>
-                  <span class="no_skill">1</span>
+                <label
+                  for="acc{{ forloop.counter }}"
+                  class="flex flex-row justify-between items-center h-[60px] pe-3"
+                >
+                  <span class="skill">{{termObj.term}}</span>
+                  <span class="no_skill">{{ forloop.counter }}</span>
                 </label>
               </div>
               <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <p>{{termObj.summary}}</p>
               </div>
             </div>
-            <div class="tab_o">
-              <input type="radio" name="acc" id="acc2" />
-              <div class="kotak_o">
-                <label for="acc2">
-                  <span class="skill">Skill</span>
-                  <span class="no_skill">2</span>
-                </label>
-              </div>
-              <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-            <div class="tab_o">
-              <input type="radio" name="acc" id="acc3" />
-              <div class="kotak_o">
-                <label for="acc3">
-                  <span class="skill">Skill</span>
-                  <span class="no_skill">3</span>
-                </label>
-              </div>
-              <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-            <div class="tab_o">
-              <input type="radio" name="acc" id="acc4" />
-              <div class="kotak_o">
-                <label for="acc4"
-                  ><span class="skill">Skill</span>
-                  <span class="no_skill">4</span>
-                </label>
-              </div>
-              <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-            <div class="tab_o">
-              <input type="radio" name="acc" id="acc5" />
-              <div class="kotak_o">
-                <label for="acc5"
-                  ><span class="skill">Skill</span>
-                  <span class="no_skill">5</span>
-                </label>
-              </div>
-              <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-            <div class="tab_o">
-              <input type="radio" name="acc" id="acc6" />
-              <div class="kotak_o">
-                <label for="acc6"
-                  ><span class="skill">Skill</span>
-                  <span class="no_skill">6</span>
-                </label>
-              </div>
-              <div class="content_o">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
+            {% endfor %}
           </div>
           <div class="see_more">Scroll up to see more</div>
         </div>

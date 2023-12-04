@@ -33,7 +33,7 @@
 }
 
 .isi {
-  top: 90px;
+  top: 50px;
   width: 700px;
   height: 450px;
   position: relative;
@@ -70,7 +70,7 @@ li {
 } */
 .skill {
   left: 20px;
-  top: 10px;
+  /* top: 10px; */
   position: relative;
   color: var(--blue);
   font-size: 22px;
@@ -81,8 +81,8 @@ li {
 }
 
 .no_skill {
-  left: 85%;
-  top: 15px;
+  /* left: 85%; */
+  /* top: 15px; */
   position: relative;
   text-align: right;
   color: var(--blue);
@@ -170,7 +170,7 @@ li {
 .row_o {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 100px;
   margin-bottom: 30px;
 }
@@ -269,7 +269,7 @@ li {
   }
 
   .no_skill {
-    left: 85%;
+    /* left: 85%; */
     font-size: 30px;
   }
 
@@ -303,7 +303,7 @@ li {
   }
 
   .no_skill {
-    left: 85%;
+    /* left: 85%; */
     font-size: 30px;
   }
 
