@@ -68,9 +68,9 @@ def getByQuery(request):
         except:
             return HttpResponse("Something went wrong while saving scraping result!", status=500)
 
-        top_terms_list = mainProcess(preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)
+        top_terms_list,terms_score = mainProcess(preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)
 
-        validatedTermsAndDescription = validateTerms(top_terms_list)
+        validatedTermsAndDescription = validateTerms(top_terms_list,terms_score)
 
         # saving terms extraction to db
         try:

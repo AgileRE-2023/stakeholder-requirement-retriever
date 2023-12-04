@@ -28,6 +28,7 @@
                 <a href="./"><span class="material-symbols-outlined">close</span></a>
             </div>
             </form>
+            
             <input id="prodiList" value="{{major}}" disabled></input>
             <div class="result-box">
                 <ul id="result-list">
@@ -35,7 +36,25 @@
                 </ul>
             </div>
     </section>
+    <section class="search">
+      <div class="sb-container">
+      <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
+        {% csrf_token %}
+          <div class="search-box-box">
+              <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
+              <input type="text" id="input-box" placeholder="GET BY QUERY (SEMENTARA GES BUAT SCRAP ALL JURUSAN DULU)" autocomplete="off"  name="getByQuery">
+          </div>
 
+          <div class="search-box-box">
+
+          <button id="reset-button" type="reset" id="reset-button">
+              Reset
+          </button>
+          <a href="./"><span class="material-symbols-outlined">close</span></a>
+      </div>
+      </form>
+    </div>
+    </section>
     <!-- <script src="../static/js/validateInput.js"></script>  -->
 </body>
 </html>
