@@ -35,7 +35,7 @@
 .isi {
   top: 50px;
   width: 700px;
-  height: 450px;
+  /* height: 500px; */
   position: relative;
   overflow: auto;
 }
@@ -94,7 +94,7 @@ li {
 }
 
 .see_more {
-  margin: 100px 150px;
+  /* margin: 100px 150px; */
   text-align: right;
   position: relative;
   color: rgba(0, 0, 0, 0.5);
@@ -252,7 +252,7 @@ li {
   }
 
   .see_more {
-    margin: 100px 100px;
+    /* margin: 100px 100px; */
   }
 
   .isi .tab_o .content_o {
@@ -274,7 +274,7 @@ li {
   }
 
   .see_more {
-    margin: 100px 70px;
+    /* margin: 100px 70px; */
   }
 }
 
