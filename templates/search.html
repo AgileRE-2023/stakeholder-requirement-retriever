@@ -13,11 +13,11 @@
   <body>
     <section class="search">
         <div class="sb-container">
-            <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
+            <form action="{% url 'getByHistory' %}" method="POST" class="search-box" id="search-form">
               {% csrf_token %}
                 <div class="search-box-box">
                     <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
-                    <input type="text" id="input-box" placeholder="What is your major" autocomplete="off"  name="getByQuery">
+                    <input type="text" id="input-box" placeholder="What is your major" autocomplete="off"  name="getByHistory">
                 </div>
 
                 <div class="search-box-box">
