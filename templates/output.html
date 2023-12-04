@@ -42,11 +42,29 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/jasondavies/d3-cloud/build/d3.layout.cloud.js"></script>
         <script src="/static/js/wordcloud.js"></script>
-
-        <span class="newest">
-          <a href="">see new version</a>
-        </span>
-        <span class="last_up">*Last Updated on Dec 2</span>
+        <form
+          action="{% url 'getByQuery' %}"
+          method="POST"
+          class="search-box"
+          id="search-form"
+        >
+          {% csrf_token %}
+          <div class="">
+            <input
+              type="text"
+              value="{{ query }}"
+              name="getByQuery"
+              class="hidden"
+            />
+            <button
+              type="submit"
+              class="py-2 px-3 rounded-xl text-white shadow-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition-all"
+            >
+              see new version
+            </button>
+            <span class="last_up">*Last Updated on Dec 2</span>
+          </div>
+        </form>
       </div>
 
       <div class="col_o-2">

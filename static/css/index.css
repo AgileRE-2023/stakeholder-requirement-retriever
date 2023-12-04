@@ -5,7 +5,12 @@
   --black: #2f4f4f;
   --blue: #4169e1;
 }
-
+.bg_seareq {
+  background-color: #4169e1 !important;
+}
+.color_seareq {
+  color: #4169e1 !important;
+}
 * {
   margin: 0;
   padding: 0;
