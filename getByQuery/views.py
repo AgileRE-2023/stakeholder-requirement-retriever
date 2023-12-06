@@ -11,6 +11,7 @@ from getByHistory.models import History
 from datetime import datetime, timedelta
 from getByQuery.models import Prodi
 import json
+import pytz
 # Create your views here.
 def home(request): 
     return render(request, "home.html")
@@ -54,7 +55,8 @@ def getByQuery(request):
         # Preprocess data
         preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized = preprocess_data(jobDescription)
 
-        dateNow = datetime.now()
+        jakarta_timezone = pytz.timezone('Asia/Jakarta')
+        dateNow = datetime.now(jakarta_timezone)
         # Add 60 days
         expired_date = dateNow + timedelta(days=60)
         # saving preprocessed scraping result to db
@@ -81,7 +83,7 @@ def getByQuery(request):
         except:
             return HttpResponse("Something went wrong while saving scraping result!", status=500)
         
-        context  = {'terms_with_description': validatedTermsAndDescription,'query':input_value,'id_prodi':prodi_instance.id_prodi}
+        context  = {'terms_with_description': validatedTermsAndDescription,'query':prodi_instance.nama_prodi,'id_prodi':prodi_instance.id_prodi,'date_generated':dateNow}
         return render(request,'output.html', context)
     else:
         return HttpResponse("nowhere to go!!!")

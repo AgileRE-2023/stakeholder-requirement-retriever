@@ -49,13 +49,13 @@ def getByHistory(request):
 
         if latest_history is not None:
             try:
-                # Deserialize the 'requirements' field
                 requirements_data = json.loads(latest_history.requirements)
-                # Now you can use 'requirements_data' in your logic or return it to the template
+                date_generated = latest_history.date_generated
                 context = {
                     'terms_with_description': requirements_data,
                     'query': prodi_instance.nama_prodi,
-                    'id_prodi': prodi_instance.id_prodi
+                    'id_prodi': prodi_instance.id_prodi,
+                    'date_generated':date_generated,
                 }
                 return render(request, 'output.html', context)
             except json.JSONDecodeError as e:

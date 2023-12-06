@@ -12,7 +12,7 @@
                 </div>
     
                 <div class="icon">
-                    <a href="search">
+                    <a href="/search">
                         <span class="material-symbols-outlined">search</span>
                     </a>
                 </div>
@@ -30,7 +30,13 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorAH %}
-                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                    <form action="{% url 'getByHistory' %}" method="POST" style="border: none;">
+                                        {% csrf_token %}
+                                        <input type="text" name="getByHistory" style="display: none;" value="{{ item.nama_prodi }}">
+                                        <button style="border: none; background: none; padding: 0; cursor: pointer;">
+                                            <li style="list-style-type: none;">{{ item.nama_prodi }}</li>
+                                        </button>
+                                    </form>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -43,7 +49,13 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorET %}
-                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                    <form action="{% url 'getByHistory' %}" method="POST" style="border: none;">
+                                        {% csrf_token %}
+                                        <input type="text" name="getByHistory" style="display: none;" value="{{ item.nama_prodi }}">
+                                        <button style="border: none; background: none; padding: 0; cursor: pointer;">
+                                            <li style="list-style-type: none;">{{ item.nama_prodi }}</li>
+                                        </button>
+                                    </form>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -56,7 +68,13 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorLSM %}
-                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                    <form action="{% url 'getByHistory' %}" method="POST" style="border: none;">
+                                        {% csrf_token %}
+                                        <input type="text" name="getByHistory" style="display: none;" value="{{ item.nama_prodi }}">
+                                        <button style="border: none; background: none; padding: 0; cursor: pointer;">
+                                            <li style="list-style-type: none;">{{ item.nama_prodi }}</li>
+                                        </button>
+                                    </form>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -69,7 +87,13 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorNS %}
-                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                    <form action="{% url 'getByHistory' %}" method="POST" style="border: none;">
+                                        {% csrf_token %}
+                                        <input type="text" name="getByHistory" style="display: none;" value="{{ item.nama_prodi }}">
+                                        <button style="border: none; background: none; padding: 0; cursor: pointer;">
+                                            <li style="list-style-type: none;">{{ item.nama_prodi }}</li>
+                                        </button>
+                                    </form>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -81,7 +105,13 @@
                         <div class="listmajor">
                             <ul class="major">
                                 {% for item in majorSSM %}
-                                <a href="/history/major/find?q={{ item.nama_prodi|urlencode }}"><li>{{ item.nama_prodi }}</li></a>
+                                    <form action="{% url 'getByHistory' %}" method="POST" style="border: none;">
+                                        {% csrf_token %}
+                                        <input type="text" name="getByHistory" style="display: none;" value="{{ item.nama_prodi }}">
+                                        <button style="border: none; background: none; padding: 0; cursor: pointer;">
+                                            <li style="list-style-type: none;">{{ item.nama_prodi }}</li>
+                                        </button>
+                                    </form>
                                 {% endfor %}
                             </ul>
                         </div>
