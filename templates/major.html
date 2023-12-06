@@ -121,4 +121,16 @@
             </div>
         </div>
 
+        {% if error_message %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '{{ error_message }}',
+                });
+                });
+            </script>
+        {% endif %}
+
         {% endblock %}

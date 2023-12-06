@@ -228,6 +228,14 @@ header .navbar .icon .material-symbols-outlined:hover{
 
 
 /* ini batas awal search section */
+.swal2-x-mark, .swal2-title, .swal2-html-container, .swal2-actions {
+    background: #fff;
+}
+
+.swal2-x-mark {
+    border-radius: 100%;
+}
+
 a, #search-button{
     display: flex;
     align-items: center;
@@ -266,7 +274,7 @@ a, #search-button{
 .search .sb-container .search-box .search-box-box #reset-button{
     font-size: 14px;
     padding-right: 20px;
-    color: red;
+    color: var(--blue);
 }
 
 .search .sb-container .search-box .search-box-box input{

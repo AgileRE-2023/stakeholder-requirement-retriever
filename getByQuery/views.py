@@ -43,7 +43,9 @@ def getByQuery(request):
         try:
             clean_input, prodi_instance = validateInput(input_value)
         except:
-            return HttpResponse("Input is not on the major list!", status=404)
+            # return HttpResponse("Input is not on the major list!", status=404)
+            error_message = "Your input is not on the list of majors. Please input a valid major."
+            return render(request, 'search.html', {'error_message': error_message})
         
         # Get data from kalibrr and JobWiz RapidAPI
         data_kalibrr = scrapingKalibrr(clean_input)

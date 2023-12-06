@@ -9,52 +9,79 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <section class="search">
-        <div class="sb-container">
-            <form action="{% url 'getByHistory' %}" method="POST" class="search-box" id="search-form">
-              {% csrf_token %}
-                <div class="search-box-box">
-                    <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
-                    <input type="text" id="input-box" placeholder="What is your major" autocomplete="off"  name="getByHistory">
-                </div>
-
-                <div class="search-box-box">
-
-                <button id="reset-button" type="reset" id="reset-button">
-                    Reset
-                </button>
-                <a href="./"><span class="material-symbols-outlined">close</span></a>
-            </div>
-            </form>
-            
-            <input id="prodiList" value="{{major}}" disabled></input>
-            <div class="result-box">
-                <ul id="result-list">
-                    <!-- Daftar rekomendasi jurusan -->
-                </ul>
-            </div>
-    </section>
-    <section class="search">
       <div class="sb-container">
-      <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
-        {% csrf_token %}
-          <div class="search-box-box">
+        <form action="{% url 'getByHistory' %}" method="POST" class="search-box" id="search-form">
+          {% csrf_token %}
+            <div class="search-box-box">
               <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
-              <input type="text" id="input-box" placeholder="GET BY QUERY (SEMENTARA GES BUAT SCRAP ALL JURUSAN DULU)" autocomplete="off"  name="getByQuery">
-          </div>
+              <input type="text" id="input-box" placeholder="What is your major" autocomplete="off"  name="getByHistory">
+            </div>
 
-          <div class="search-box-box">
-
-          <button id="reset-button" type="reset" id="reset-button">
-              Reset
-          </button>
-          <a href="./"><span class="material-symbols-outlined">close</span></a>
+            <div class="search-box-box">
+              <button id="reset-button" type="reset" id="reset-button">
+                  Reset
+              </button>
+              <a href="/" id="closeButton"><span class="material-symbols-outlined">close</span></a>
+            </div>
+        </form>
+        
+        <input id="prodiList" value="{{major}}" disabled></input>
+        
+        <div class="result-box">
+          <ul id="result-list">
+            <!-- Daftar rekomendasi jurusan -->
+          </ul>
+        </div>
       </div>
-      </form>
-    </div>
     </section>
-    <!-- <script src="/static/js/validateInput.js"></script>  -->
+
+    <!-- <section class="search">
+      <div class="sb-container">
+        <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
+          {% csrf_token %}
+            <div class="search-box-box">
+              <button id="search-button" type="submit"><span class="material-symbols-outlined">search</span></button>
+              <input type="text" id="input-box" placeholder="GET BY QUERY (SEMENTARA GES BUAT SCRAP ALL JURUSAN DULU)" autocomplete="off" name="getByQuery">
+            </div>
+
+            <div class="search-box-box">
+              <button id="reset-button" type="reset" id="reset-button">
+                  Reset
+              </button>
+              <a href="./"><span class="material-symbols-outlined">close</span></a>
+            </div>
+        </form>
+      </div>
+    </section> -->
+
+    <script>
+      // Tombol close akan mengarahkan pengguna ke halaman yang sebelumnya diakses
+      document.addEventListener('DOMContentLoaded', function() {
+        var closeButton = document.getElementById('closeButton');
+        closeButton.addEventListener('click', function(event) {
+          event.preventDefault();
+          var refererUrl = document.referrer || '/';
+          window.location.href = refererUrl;
+        });
+      });
+    </script>
+
+    {% if error_message %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: '{{ error_message }}',
+          });
+        });
+      </script>
+    {% endif %}
+
+    <!-- <script src="../static/js/validateinput.js"></script> -->
 </body>
 </html>

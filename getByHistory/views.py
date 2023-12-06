@@ -42,7 +42,9 @@ def getByHistory(request):
         try:
             clean_input, prodi_instance = validateInput(input_value)
         except:
-            return HttpResponse("Input is not on the major list!", status=404)
+            # return HttpResponse("Input is not on the major list!", status=404)
+            error_message = "Your input is not on the list of majors. Please input a valid major."
+            return render(request, 'search.html', {'error_message': error_message})
 
         # Get the latest History record for the specified id_prodi
         latest_history = History.objects.filter(id_prodi=prodi_instance.id_prodi).order_by('-date_generated').first()
@@ -64,4 +66,6 @@ def getByHistory(request):
                 return HttpResponse("Error decoding JSON data", status=500)
         else:
             # Handle the case where no History instance is found for the specified id_prodi
-            return HttpResponse("No history found for the specified id_prodi", status=404)
+            # return HttpResponse("No history found for the specified id_prodi", status=404)
+            error_message = "No history found for the specified major. Please input the major in the search field."
+            return render(request, 'search.html', {'error_message': error_message})
