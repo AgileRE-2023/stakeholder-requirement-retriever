@@ -1,3 +1,10 @@
+var inputBox = document.getElementById("input-box");
+var searchForm = document.getElementById("search-form");
+var resetButton = document.getElementById("reset-button");
+
+// Optional: Hide the reset button initially
+resetButton.style.display = 'none';
+
 function convertStringToArray(stringArray) {
   const replacedString = stringArray.replace(/'/g, '"');
   return JSON.parse(replacedString);
@@ -11,7 +18,25 @@ document.addEventListener("DOMContentLoaded", function () {
     var majors = []
   }
 
-  document.getElementById("input-box").addEventListener("input", function () {
+  var searchButton = document.getElementById("search-button");
+    searchButton.addEventListener("click", function (event) {
+        // Prevent the default button behavior (page reload)
+        event.preventDefault();
+        // Validate the input value before submitting the form
+        var inputValue = inputBox.value;
+        if (inputValue && majors.includes(inputValue)) {
+        // Input is not empty and matches a major, submit the form
+        searchForm.submit();
+        } else {
+        // Display an error message
+        showNotification("No history found for the specified major. Please input the major in the search field.");
+        }
+    });
+
+    
+
+  inputBox.addEventListener("input", function () {
+    resetButton.style.display = inputBox.value.trim() !== '' ? 'block' : 'none';
     var query = this.value.toLowerCase();
     var matches = majors.filter(function (major) {
       // Split the major into words
@@ -26,28 +51,49 @@ document.addEventListener("DOMContentLoaded", function () {
     displayResults(matches);
   });
 
-  document
-    .getElementById("input-box")
-    .addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault(); // Preventing the default action of the "Enter" button
-        showNotification(
-          "Please select a major from the recommendation list below."
-        );
+  inputBox.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      // Prevent the default behavior (form submission)
+      event.preventDefault();
+      // Validate the input value before submitting the form
+      var inputValue = inputBox.value;
+      if (inputValue && majors.includes(inputValue)) {
+        // Input is not empty and matches a major, submit the form
+        searchForm.submit();
+      } else {
+        // Display an error message
+        showNotification("No history found for the specified major. Please input the major in the search field.")
       }
-    });
+    }
+  });
+
+  
 
   function displayResults(results) {
     var resultList = document.getElementById("result-list");
     resultList.innerHTML = "";
 
+    resetButton.addEventListener("click", function () {
+      // Set the selected result as the value of the input-box
+      resetButton.style.display = 'none';
+      resultList.innerHTML = "";
+      inputBox.value = "";
+  
+    });
+
     results.forEach(function (result) {
       var listItem = document.createElement("li");
-      var link = document.createElement("a");
-      link.href = result.replace(/\s+/g, "-").toLowerCase();
+      var link = document.createElement("li");
       link.textContent = result;
       listItem.appendChild(link);
       resultList.appendChild(listItem);
+
+      // Add click event listener to each link
+      link.addEventListener("click", function () {
+        // Set the selected result as the value of the input-box
+        inputBox.value = result;
+      });
+      
     });
 
     if (results.length === 0) {
@@ -60,6 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showNotification(message) {
     // Displaying a notification from preventing the default action of the "Enter" button
-    alert(message);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: message,
+  });
   }
 });
