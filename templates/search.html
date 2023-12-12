@@ -77,13 +77,15 @@
 
    {% if error_message %}
       <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          Swal.fire({
-              icon: 'error',
-              title: 'Error!',
-              text: '{{ error_message }}',
-          });
-        });
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: '{{ error_message }}',
+          confirmButtonText: 'OK',
+      }).finally(() => {
+        window.location.href = '/search';
+      });
+
       </script>
     {% endif %} 
 
