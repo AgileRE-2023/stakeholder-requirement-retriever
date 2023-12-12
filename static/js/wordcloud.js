@@ -82,4 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   console.log(words);
+
+  // var versionButton = document.getElementById("version");
+  // var searchform = document.getElementById("search-form")
+  // versionButton.addEventListener("click", function (event) {
+  //       // Prevent the default button behavior (page reload)
+  //       event.preventDefault();
+  //       Swal.fire({
+  //         icon: 'question',
+  //         title: 'Are you sure?',
+  //         text: 'Do you want to proceed with this action?',
+  //         showCancelButton: true,
+  //         confirmButtonText: 'Yes',
+  //         cancelButtonText: 'No',
+  //     }).then((result) => {
+  //         // If the user clicks "Yes", submit the form
+  //         if (result.isConfirmed) {
+  //           searchform.submit(); // Submit the form
+  //         }
+  //     });
+  //   });
+
 });

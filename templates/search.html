@@ -65,12 +65,17 @@
         closeButton.addEventListener('click', function(event) {
           event.preventDefault();
           var refererUrl = document.referrer || '/';
-          window.location.href = refererUrl;
+          if (refererUrl.includes('search') || refererUrl.includes('history/getByHistory')) {
+            window.location.href = '/';
+        } else {
+            window.location.href = refererUrl;
+        }
+          
         });
       });
     </script>
 
-    {% if error_message %}
+   {% if error_message %}
       <script>
         document.addEventListener('DOMContentLoaded', function () {
           Swal.fire({
@@ -80,8 +85,8 @@
           });
         });
       </script>
-    {% endif %}
+    {% endif %} 
 
-    <!-- <script src="../static/js/validateinput.js"></script> -->
+    <script src="../static/js/validateinput.js"></script> 
 </body>
 </html>
