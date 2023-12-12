@@ -110,6 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
       icon: 'error',
       title: 'Error!',
       text: message,
-  });
+    }).finally(() => {
+      window.location.href = '/search';
+    });
   }
 });
