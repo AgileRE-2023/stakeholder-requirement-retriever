@@ -6,6 +6,10 @@
     --blue: #4169E1;
 }
 
+.rounded-custom {
+    border-radius: 50px; /* Sesuaikan dengan nilai piksel yang diinginkan */
+  }
+
 *{
     margin: 0;
     padding: 0;
