@@ -53,13 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
     .words(
       words.map((word) => ({
         text: word.word,
-        size: word.quantity * 1,
+        size: word.quantity *1 > 60 ? 60 : word.quantity * 1 ,
+        // size: word.quantity * 1,
       }))
     )
     .padding(2)
     .rotate(0)
     .fontSize((d) => d.size)
-    .spiral("rectangular")
+    .spiral("archimedean")
     .on("end", draw);
 
   layout.start();

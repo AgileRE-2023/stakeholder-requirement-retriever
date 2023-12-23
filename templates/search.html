@@ -58,6 +58,8 @@
       </div>
     </section>
 
+    <a href="/search"><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block;">OK</button></a>
+
     <script>
       // Tombol close akan mengarahkan pengguna ke halaman yang sebelumnya diakses
       document.addEventListener('DOMContentLoaded', function() {
@@ -75,9 +77,9 @@
       });
     </script>
 
-   {% if error_message %}
-      <script>
-        Swal.fire({
+    {% if error_message %}
+    <script>
+      Swal.fire({
           icon: 'error',
           title: 'Error!',
           text: '{{ error_message }}',
@@ -85,9 +87,8 @@
       }).finally(() => {
         window.location.href = '/search';
       });
-
-      </script>
-    {% endif %} 
+    </script>
+    {% endif %}
 
     <script src="../static/js/validateinput.js"></script> 
 </body>

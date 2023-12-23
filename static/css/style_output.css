@@ -1,7 +1,33 @@
 /* view */
+.tab_o.open .content_o {
+  max-height: 500vh;
+  display: block;
+  width: 91%;
+  background: var(--blue);
+  margin-bottom: 20px;
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.4);
+  border-radius: 0px 0px 15px 15px;
+  font-size: 14px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.rounded-custom {
+  border-radius: 50px;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
 .cloud {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  flex-grow: 1;
   width: 500px;
   height: 450px;
+  padding-bottom: 60px;
   flex-shrink: initial;
   border-radius: 390px;
   background: transparent;
@@ -9,8 +35,9 @@
 
 .output {
   width: 100%;
+  margin-left: 70px;
   height: 600px;
-  position: relative;
+  /* position: relative; */
 }
 
 .judul {
@@ -23,8 +50,8 @@
 
 .judul2 {
   left: 0px;
-  top: 35px;
-  position: absolute;
+  /* top: 35px; */
+  /* position: absolute; */
   color: #2f4f4f;
   font-size: 40px;
   font-family: Helvetica;
@@ -33,10 +60,10 @@
 }
 
 .isi {
-  top: 50px;
+  /* top: 50px; */
   width: 700px;
   /* height: 500px; */
-  position: relative;
+  /* position: relative; */
   overflow: auto;
 }
 
@@ -78,9 +105,11 @@ li {
   font-weight: 400;
   background: transparent;
   word-wrap: break-word;
+  text-transform: capitalize;
 }
 
 .no_skill {
+  cursor: pointer;
   /* left: 85%; */
   /* top: 15px; */
   position: relative;
@@ -135,7 +164,7 @@ li {
     color: var(--blue);
 } */
 
-.isi .tab_o .content_o {
+/* .isi .tab_o .content_o {
   width: 91%;
   background: var(--blue);
   margin-bottom: 20px;
@@ -144,7 +173,7 @@ li {
   font-size: 14px;
   overflow: hidden;
   text-align: justify;
-}
+} */
 
 .content_o p {
   background: transparent;
@@ -157,14 +186,24 @@ li {
 }
 
 .content_o {
+  max-height: 500vh;
+  display: block;
+  width: 91%;
   background: var(--blue);
+  margin-bottom: 20px;
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.4);
+  border-radius: 0px 0px 15px 15px;
   max-height: 0;
-  transition: 0.5s ease;
+  font-size: 14px;
+  text-align: justify;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
   overflow: hidden;
 }
-.isi .tab_o input:checked ~ .content_o {
+
+/* .isi .tab_o input:checked ~ .content_o {
   max-height: 500vh;
-}
+} */
 
 /* responsive layout */
 .row_o {
@@ -224,15 +263,15 @@ li {
   font-weight: 400;
   word-wrap: break-word;
 }
-
+/* 
 .cloud {
   width: 500px;
-  height: 450px;
+  height: 480px;
   display: flex;
   justify-content: center;
   padding-top: 10px;
   flex-grow: 1;
-}
+} */
 
 @media only screen and (max-width: 1400px) {
   .judul {
