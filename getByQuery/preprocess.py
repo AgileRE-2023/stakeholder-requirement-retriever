@@ -20,6 +20,8 @@ def preprocess_data(job_descriptions):
     # Replace newline characters with a space
     job_descriptions = [description.replace('\n', ' ') for description in job_descriptions]
 
+    job_descriptions = [description.replace('\t', ' ') for description in job_descriptions]
+
     def remove_non_ascii(text):
         # Use a regular expression to remove non-ASCII characters
         cleaned_text = re.sub(r'[^\x00-\x7F]+', '', text)

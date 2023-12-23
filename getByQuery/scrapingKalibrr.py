@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 def scrapingKalibrr(inputValue):
-    url = "https://www.kalibrr.com/_next/data/_yMMj8fCE0xbsEn4-4ZtH/en/home/te/"+inputValue.replace(" ","-")+".json?param=te&param="+inputValue.replace(" ","-")
+    url = "https://www.kalibrr.com/_next/data/RHBx-W8Ym0gWx0tw46C5b/en/home/te/"+inputValue.replace(" ","-")+".json?param=te&param="+inputValue.replace(" ","-")
     job_descriptions = []  # Initialize a list to store job descriptions
 
     response = requests.get(url)
