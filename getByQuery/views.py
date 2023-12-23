@@ -50,12 +50,13 @@ def getByQuery(request):
         # Get data from kalibrr and JobWiz RapidAPI
         data_kalibrr = scrapingKalibrr(clean_input)
         data_JobWiz = jobWizRapidAPI(clean_input)
-
+        
         # Append data
         jobDescription = data_kalibrr + data_JobWiz
 
         # Preprocess data
         preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized = preprocess_data(jobDescription)
+        # print(preprocessed_separate_docs)
 
         jakarta_timezone = pytz.timezone('Asia/Jakarta')
         dateNow = datetime.now(jakarta_timezone)
@@ -69,8 +70,8 @@ def getByQuery(request):
             # Save the serialized array into the Scraping model
             scraping_instance = Scraping(teks=converted_preprocessed_data,tgl_scrap=dateNow,id_prodi=prodi_instance)
             scraping_instance.save()
-        except:
-            return HttpResponse("Something went wrong while saving scraping result!", status=500)
+        except Exception as e:
+            return HttpResponse(f"Something went wrong while saving scraping result! : {e}", status=500)
 
         top_terms_list,terms_score = mainProcess(preprocessed_one_sentence,preprocessed_separate_docs,preprocessed_separate_docs_tokenized)
 
@@ -79,11 +80,11 @@ def getByQuery(request):
         # saving terms extraction to db
         try:
             converted_terms_data = json.dumps(validatedTermsAndDescription)
-            # Save the serialized array into the Scraping model
+            # Save the serialized array into the History model
             history_instance = History(date_generated=dateNow, exp_date=expired_date, requirements=converted_terms_data, id_prodi=prodi_instance)
             history_instance.save()
-        except:
-            return HttpResponse("Something went wrong while saving scraping result!", status=500)
+        except Exception as e:
+            return HttpResponse(f"Something went wrong while saving history result! : {e}", status=500)
         
         context  = {'terms_with_description': validatedTermsAndDescription,'query':prodi_instance.nama_prodi,'id_prodi':prodi_instance.id_prodi,'date_generated':dateNow}
         return render(request,'output.html', context)
