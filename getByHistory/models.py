@@ -7,4 +7,4 @@ class History(models.Model):
     id_prodi = models.ForeignKey(Prodi, on_delete=models.CASCADE, related_name='histories',default=1)
     date_generated = models.DateTimeField(auto_now_add=True)
     exp_date = models.DateTimeField(auto_now_add=True)
-    requirements = models.TextField()
+    requirements = models.TextField(max_length=599999,null=False)
