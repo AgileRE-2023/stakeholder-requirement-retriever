@@ -120,7 +120,7 @@ def second_TF_IDF(combine_all_terms,preprocessed_separate_docs):
     from sklearn.feature_extraction.text import TfidfVectorizer
     import numpy as np
 
-    # Create the TF-IDF vectorizer with your specified terms and enable n-grams
+    # Create the TF-IDF vectorizer with specified term (2 and 3 words terms) and enable n-grams
     vectorizer = TfidfVectorizer(vocabulary=combine_all_terms, ngram_range=(2, 3))
 
     # Fit and transform the documents
