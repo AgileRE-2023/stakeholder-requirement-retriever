@@ -39,7 +39,7 @@
       </div>
     </section>
 
-    <section class="search">
+    {% comment %} <section class="search">
       <div class="sb-container">
         <form action="{% url 'getByQuery' %}" method="POST" class="search-box" id="search-form">
           {% csrf_token %}
@@ -58,7 +58,7 @@
       </div>
     </section>
 
-    <a href="/search"><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block;">OK</button></a>
+    <a href="/search"><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block;">OK</button></a> {% endcomment %}
 
     <script>
       // Tombol close akan mengarahkan pengguna ke halaman yang sebelumnya diakses
