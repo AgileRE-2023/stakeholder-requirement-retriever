@@ -45,7 +45,7 @@ def get_current_timestamp(context):
     last_updated_datetime = parser.parse(last_updated_text, fuzzy=True)
     return time.mktime(last_updated_datetime.timetuple())
 
-@then('the user should see the latest stakeholder requirements in the output page')
+@then('the user should see the latest stakeholder requirements in the output page by knowing that current date of requirement terms is newer than the previous one')
 def step_then_latest_requirements(context):
     last_updated_text = context.browser.find_element(By.CLASS_NAME, "last_up").text
 

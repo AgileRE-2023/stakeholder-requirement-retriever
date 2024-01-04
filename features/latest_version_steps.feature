@@ -5,4 +5,4 @@ Feature: Get latest requirements from button on the output page
         When the user clicks "Electrical Engineering"
         And the user sees the last updated date
         And the user clicks on the "see new version" button
-        Then the user should see the latest stakeholder requirements in the output page
+        Then the user should see the latest stakeholder requirements in the output page by knowing that current date of requirement terms is newer than the previous one
