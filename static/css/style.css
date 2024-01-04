@@ -292,15 +292,15 @@ a, #search-button{
 
 .search .sb-container .result-box{
     width: 100%;
-    max-height: 335px;
+    /* max-height: 339px; */
     overflow-y: scroll;
+    padding-top: 8px;
 }
 
 .search .sb-container .result-box ul{
     width: 100%;
     font-size: 14px;
-    margin-top: -45px;
-    padding-top: 115px;
+    margin-top: 45px;
     padding-bottom: 5px;
     border-radius: 10px;
     position: relative;
@@ -309,13 +309,14 @@ a, #search-button{
 
 .search .sb-container .result-box ul li{
     background: transparent;
-    padding: 10px 36px;
+    padding: 8px 36px;
     cursor: pointer;
     transition: 0.3 ease;
 }
 
 .search .sb-container .result-box ul li:hover{
     background: #E6E6FA;
+    color: var(--blue);
 }
 /* ini batas akhir search section */
 

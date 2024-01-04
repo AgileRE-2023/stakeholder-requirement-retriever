@@ -20,54 +20,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var searchButton = document.getElementById("search-button");
     searchButton.addEventListener("click", function (event) {
-        // Prevent the default button behavior (page reload)
         event.preventDefault();
-        // Validate the input value before submitting the form
-        var inputValue = inputBox.value;
-        if (inputValue && majors.includes(inputValue)) {
-        // Input is not empty and matches a major, submit the form
         searchForm.submit();
-        } else {
-        // Display an error message
-        showNotification("No history found for the specified major. Please input the major in the search field.");
-        }
     });
 
     
-
-  inputBox.addEventListener("input", function () {
-    resetButton.style.display = inputBox.value.trim() !== '' ? 'block' : 'none';
-    var query = this.value.toLowerCase();
-    var matches = majors.filter(function (major) {
-      // Split the major into words
-      var words = major.toLowerCase().split(" ");
-
-      // Check if any word or the major itself matches the query
-      return words.some(function (word) {
-        return word.startsWith(query) || major.toLowerCase().startsWith(query);
-      });
-    });
-
-    displayResults(matches);
-  });
-
   inputBox.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       // Prevent the default behavior (form submission)
       event.preventDefault();
-      // Validate the input value before submitting the form
-      var inputValue = inputBox.value;
-      if (inputValue && majors.includes(inputValue)) {
-        // Input is not empty and matches a major, submit the form
-        searchForm.submit();
-      } else {
-        // Display an error message
-        showNotification("No history found for the specified major. Please input the major in the search field.")
-      }
+      searchForm.submit();
     }
   });
 
+  inputBox.addEventListener("click", function () {
+    var inputValue = this.value.trim().toLowerCase();
+    var matchingResults = majors.filter(function (major) {
+      return major.toLowerCase().includes(inputValue);
+    });
   
+    displayResults(matchingResults);
+  });
+
+
+    inputBox.addEventListener("input", function () {
+      resetButton.style.display = inputBox.value.trim() !== '' ? 'block' : 'none';
+      var query = this.value.trim().toLowerCase();
+      
+      // Filter majors that start with the query
+      var matches = majors.filter(function (major) {
+        return major.toLowerCase().startsWith(query);
+      });
+    
+      displayResults(matches);
+    });
+
+    
 
   function displayResults(results) {
     var resultList = document.getElementById("result-list");
@@ -80,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
       inputBox.value = "";
   
     });
+    
+    results.sort();
 
     results.forEach(function (result) {
       var listItem = document.createElement("li");
@@ -104,14 +94,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function showNotification(message) {
-    // Displaying a notification from preventing the default action of the "Enter" button
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: message,
-    }).finally(() => {
-      window.location.href = '/search';
-    });
-  }
 });
