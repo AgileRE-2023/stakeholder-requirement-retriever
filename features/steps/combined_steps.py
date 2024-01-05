@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 from behave import given, when, then
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 
 @given(u'I am on "{search_page_path}"')
@@ -32,3 +33,9 @@ def step_then(context, major,div_id):
 def step_then_error_popup(context, error_message,div_id_error_popup):
     popup_error_text = context.browser.find_element("id", div_id_error_popup).text
     assert error_message in popup_error_text, f"Expected error message not found in the popup, expected : '{error_message}', got : '{popup_error_text}'"
+
+
+@when(u'I select "{major}"')
+def step_impl(context, major):
+    major_to_click = context.browser.find_element(By.XPATH, f'//li[contains(text(), "{major}")]')
+    major_to_click.click()
