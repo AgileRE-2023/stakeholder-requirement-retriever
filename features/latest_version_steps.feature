@@ -7,7 +7,7 @@ Feature: User Story Get_Latest_Requirements_From_Button_On_Output_Page
 
     Scenario: User clicks on "see new version" button to get the latest requirements
         Given I am on "/history/major"
-        When I press "Electrical Engineering" 
+        When I select "Information System" 
         And I see "last updated date"
         And I press "see new version"
         Then I should see "the latest stakeholder requirements" in the output page
