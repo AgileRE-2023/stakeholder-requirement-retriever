@@ -13,8 +13,8 @@ def step_when(context,major, id):
     major_input = context.browser.find_element("id",id)  
     major_input.send_keys(major)
 
-@when(u'I press "{keys}"')
-def step_when(context,keys):
+@when(u'I press enter')
+def step_when(context):
     major_input = context.browser.find_element("id", "input-box")
     major_input.send_keys(Keys.ENTER)
     
@@ -35,7 +35,7 @@ def step_then_error_popup(context, error_message,div_id_error_popup):
     assert error_message in popup_error_text, f"Expected error message not found in the popup, expected : '{error_message}', got : '{popup_error_text}'"
 
 
-@when(u'I select "{major}"')
+@when(u'I press "{major}"')
 def step_impl(context, major):
     major_to_click = context.browser.find_element(By.XPATH, f'//li[contains(text(), "{major}")]')
     major_to_click.click()
