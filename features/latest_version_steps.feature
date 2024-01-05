@@ -1,9 +1,7 @@
-Feature: User Story Get_Latest_Requirements_From_Button_On_Output_Page
-    As a user of the stakeholder requirement retrieval app
-    I want to view the latest stakeholder requirements for a major
-    So that I can stay updated on the current requirements
-
-  Feature: Get latest requirements from button on the output page
+Feature: User Story Get Latest Requirements From Button On Output Page
+    In order to understand what skills I should have to keep up with the industries
+    As a Fresh graduate from university 
+    I want to get the latest stakeholder requirements for a major by clicking on the see new version button
 
     Scenario: User clicks on "see new version" button to get the latest requirements
         Given I am on "/history/major"
