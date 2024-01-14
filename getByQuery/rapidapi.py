@@ -1,3 +1,4 @@
+import os
 import requests
 
 def jobWizRapidAPI(query):
@@ -5,7 +6,7 @@ def jobWizRapidAPI(query):
 
 
     headers = {
-        "X-RapidAPI-Key": "997fb11043mshc85667bcbcecda7p12ecc8jsn9fadca695bff",
+        "X-RapidAPI-Key": os.environ.get('JOBWIZ_RAPIDAPI_JOBSCRAPER'),
         "X-RapidAPI-Host": "job-search-api1.p.rapidapi.com"
     }
     job_descriptions = []
